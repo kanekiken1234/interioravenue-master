@@ -13,6 +13,7 @@
     "@eva-design/eva": "^2.1.1",
     "@react-native-community/hooks": "^2.8.1",
     "@ui-kitten/components": "^5.1.1",
+    "@ui-kitten/eva-icons": "^5.1.1",
     "@viro-community/react-viro": "^2.20.2",
     "fsevents": "^2.3.2",
     "react": "17.0.2",
