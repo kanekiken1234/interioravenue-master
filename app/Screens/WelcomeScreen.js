@@ -1,23 +1,36 @@
 import React from 'react';
 import {View, StyleSheet, ImageBackground, Text} from 'react-native';
 import colors from '../config/colors';
+import {Icon} from '@ui-kitten/components';
 
 function WelcomeScreen(props) {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../Images/newest.webp')}>
+      source={require('../Images/uff5.png')}>
       <View style={styles.contentContainer}>
         <View style={styles.textContainer}>
-          <Text style={styles.content}>Modern Furniture</Text>
+          <Text style={styles.yellowText}>Modern Furniture</Text>
           <View style={styles.dreamContainer}>
-            <Text style={styles.content}>For you</Text>
-            <Text style={styles.dream}>Dream</Text>
+            <Text style={styles.content}>For Your Dream</Text>
+            {/* <Text style={styles.content}>Dream</Text> */}
           </View>
           <Text style={styles.content}>House</Text>
+
+          <View style={styles.content2Container}>
+            <Text style={styles.content2}>
+              Our products combine functional utility
+            </Text>
+            <Text style={styles.content2}>
+              with elegance, keeping in view the
+            </Text>
+            <Text style={styles.content2}>efficient use of floor space</Text>
+          </View>
         </View>
         <View style={styles.arrowConatiner}>
-          <View style={styles.arrowCircle}></View>
+          <View style={styles.arrowCircle}>
+            <Icon style={styles.icon} fill="black" name="arrow-right-outline" />
+          </View>
         </View>
       </View>
     </ImageBackground>
@@ -32,42 +45,60 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     // backgroundColor: 'red',
-    flexDirection: 'row',
-    height: '25%',
+    // flexDirection: 'row',
+    height: '40%',
     width: '100%',
     position: 'absolute',
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   textContainer: {
     alignItems: 'flex-start',
     // backgroundColor: 'yellow',
-    justifyContent: 'center',
-    width: '70%',
+    // justifyContent: 'center',
+    width: '100%',
   },
   content: {
-    paddingLeft: 20,
-    fontSize: 35,
+    fontSize: 38,
     fontWeight: 'bold',
     color: colors.white,
+  },
+  content2: {
+    fontWeight: 'bold',
+    color: '#545454',
+    fontSize: 16,
+    letterSpacing: 1,
+  },
+  content2Container: {
+    // backgroundColor: 'green',
+    marginTop: 15,
   },
   dreamContainer: {
     flexDirection: 'row',
   },
-  dream: {
+  yellowText: {
     color: colors.secondary,
-    fontSize: 35,
-    paddingLeft: 5,
+    fontSize: 38,
     fontWeight: 'bold',
   },
   arrowConatiner: {
-    width: '30%',
+    width: '100%',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
+    // height: '100%',
+    marginTop: 20,
   },
   arrowCircle: {
-    height: 50,
-    width: 50,
+    height: 60,
+    width: 60,
     borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: colors.secondary,
+  },
+  icon: {
+    width: 45,
+    height: 45,
   },
 });
 

@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
-import {ApplicationProvider} from '@ui-kitten/components';
+import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
 import {Button, Layout, Text} from '@ui-kitten/components';
 import {default as myTheme} from './app/config/theme.json';
 import {ThemeContext} from './app/config/theme-context';
 import WelcomeScreen from './app/Screens/WelcomeScreen';
+import {EvaIconsPack} from '@ui-kitten/eva-icons';
 
 export default () => {
   const [theme, setTheme] = React.useState('light');
@@ -23,6 +24,7 @@ export default () => {
     // />
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <ApplicationProvider {...eva} theme={eva[theme]}>
+        <IconRegistry icons={EvaIconsPack} />
         {/* <Layout
           style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Button onPress={toggleTheme} status="basic">
