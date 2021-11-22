@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
     container2: {
         paddingLeft: 45,
-        paddingTop: 25,
+        paddingTop: 15,
     },
     header: {
         color: colors.secondary,
