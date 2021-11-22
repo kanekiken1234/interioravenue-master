@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { Icon, Button } from '@ui-kitten/components';
+import { Icon, Button, Input } from '@ui-kitten/components';
 import colors from '../config/colors';
 import Screen from '../components/Screen';
 
@@ -10,6 +10,7 @@ const BackButton = (props) => (
 );
 
 function SignUpScreen() {
+    const [email, setEmail] = React.useState("");
     return (
         <Screen style={styles.background}>
             <View style={styles.mainContainer}>
@@ -28,8 +29,51 @@ function SignUpScreen() {
                         <Text style={styles.subHeader}>Please fill the information below.</Text>
                     </View>
                 </View>
-                <View></View>
-                <View></View>
+                <View style={styles.container3}>
+                    <Input
+                        placeholderTextColor="#545454"
+                        style={styles.inputField}
+                        placeholder="Email Id"
+                        color={colors.white}
+                        value={email}
+                        // onChangeText={nextValue => setEmail(nextValue)}
+                        size="large"
+                    />
+                    <Input
+                        placeholderTextColor="#545454"
+                        style={styles.inputField}
+                        placeholder="Phone Number"
+                        value={email}
+                        color={colors.white}
+                        // onChangeText={nextValue => setEmail(nextValue)}
+                        size="large"
+                    />
+                    <Input
+                        placeholderTextColor="#545454"
+                        style={styles.inputField}
+                        placeholder="Password"
+                        value={email}
+                        color={colors.white}
+                        // onChangeText={nextValue => setEmail(nextValue)}
+                        size="large"
+                    />
+                    <Input
+                        placeholderTextColor="#545454"
+                        style={styles.inputField}
+                        placeholder="Confirm Password"
+                        value={email}
+                        color={colors.white}
+                        // onChangeText={nextValue => setEmail(nextValue)}
+                        size="large"
+                    />
+                </View>
+                <View style={styles.container4}>
+                    <View style={styles.buttonContainer}>
+                        <Button size="giant" status="basic" style={styles.submitButton}>
+                            Sign Up
+                        </Button>
+                    </View>
+                </View>
             </View>
         </Screen>
     )
@@ -44,6 +88,9 @@ const styles = StyleSheet.create({
     background: {
         backgroundColor: colors.black
     },
+    buttonContainer: {
+        width: "80%"
+    },
     container1: {
         paddingTop: 15,
         width: '100%',
@@ -52,6 +99,24 @@ const styles = StyleSheet.create({
     container2: {
         paddingLeft: 45,
         paddingTop: 15,
+    },
+    container3: {
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        padding: 45,
+    },
+    container4: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        bottom: 30
+    },
+    inputField: {
+        backgroundColor: "#1e1c24",
+        borderRadius: 10,
+        borderColor: "#545454",
+        marginBottom: 36,
     },
     header: {
         color: colors.secondary,
@@ -65,6 +130,12 @@ const styles = StyleSheet.create({
         color: "#545454",
         letterSpacing: 1,
         fontSize: 30
+    },
+    submitButton: {
+        backgroundColor: colors.secondary,
+        color: colors.black,
+        borderColor: colors.secondary,
+        borderRadius: 10,
     }
 })
 
