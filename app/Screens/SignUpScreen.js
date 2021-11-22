@@ -46,10 +46,11 @@ const styles = StyleSheet.create({
     },
     container1: {
         paddingTop: 15,
-        paddingLeft: 10,
+        width: '100%',
+        height: 64
     },
     container2: {
-        paddingLeft: 25,
+        paddingLeft: 45,
         paddingTop: 25,
     },
     header: {
