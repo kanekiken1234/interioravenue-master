@@ -13,7 +13,6 @@ function WelcomeScreen(props) {
           <Text style={styles.yellowText}>Modern Furniture</Text>
           <View style={styles.dreamContainer}>
             <Text style={styles.content}>For Your Dream</Text>
-            {/* <Text style={styles.content}>Dream</Text> */}
           </View>
           <Text style={styles.content}>House</Text>
 
@@ -48,8 +47,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   contentContainer: {
-    // backgroundColor: 'red',
-    // flexDirection: 'row',
     height: '40%',
     width: '100%',
     position: 'absolute',
@@ -58,8 +55,6 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     alignItems: 'flex-start',
-    // backgroundColor: 'yellow',
-    // justifyContent: 'center',
     width: '100%',
   },
   content: {
@@ -74,7 +69,6 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   content2Container: {
-    // backgroundColor: 'green',
     marginTop: 15,
   },
   dreamContainer: {
@@ -89,7 +83,6 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    // height: '100%',
     marginTop: 20,
   },
   arrowCircle: {
