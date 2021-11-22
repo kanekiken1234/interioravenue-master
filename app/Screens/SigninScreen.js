@@ -15,15 +15,11 @@ const BackButton = props => (
 
 function SigninScreen(props) {
   const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
   return (
     <Screen>
       <View style={styles.container}>
         <View style={styles.iconConatiner}>
-          {/* <Icon
-            style={styles.icon}
-            name="corner-up-left-outline"
-            fill={colors.white}
-          /> */}
           <Button
             style={styles.icon}
             appearance="ghost"
@@ -38,16 +34,38 @@ function SigninScreen(props) {
             <Text style={styles.subHeading}>You've been missed !</Text>
           </View>
           <View style={styles.inputContainer}>
-            <Input
-              style={styles.input}
-              placeholder="Enter Your Email Id"
-              value={email}
-              onChangeText={nextValue => setEmail(nextValue)}
-              size="large"
-            />
+            <View style={styles.inputFiled}>
+              <Input
+                style={styles.input}
+                placeholder="Enter Your Email Id"
+                value={email}
+                placeholderTextColor="#545454"
+                color={colors.white}
+                onChangeText={nextValue => setEmail(nextValue)}
+                size="large"
+              />
+            </View>
+            <View style={styles.inputFiled}>
+              <Input
+                style={styles.input}
+                placeholder="Enter Password"
+                secureTextEntry
+                value={password}
+                placeholderTextColor="#545454"
+                color={colors.white}
+                onChangeText={nextValue => setPassword(nextValue)}
+                size="large"
+              />
+            </View>
           </View>
         </View>
-        <View></View>
+        <View style={styles.buttonContainer}>
+          <View style={styles.subButtonConatiner}>
+            <Button size="giant" status="basic" style={styles.submitButton}>
+              Sign In
+            </Button>
+          </View>
+        </View>
       </View>
     </Screen>
   );
@@ -60,21 +78,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   iconConatiner: {
-    // backgroundColor: 'red',
     width: '100%',
     height: 64,
-    // paddingLeft: 4,
     paddingTop: 15,
   },
   icon: {
-    // backgroundColor: 'yellow',
     width: 64,
     height: 64,
     borderRadius: 50,
-  },
-  headingContainer: {
-    // backgroundColor: 'green',
-    height: '40%',
   },
   heading: {
     paddingTop: 15,
@@ -95,12 +106,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     padding: 45,
-    // backgroundColor: 'red',
+  },
+  inputFiled: {
+    width: '100%',
+    marginBottom: 36,
   },
   input: {
-    backgroundColor: colors.black,
+    backgroundColor: '#1E1C24',
     borderRadius: 10,
     color: colors.white,
+    borderColor: '#545454',
+  },
+  buttonContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    bottom: 30,
+  },
+  subButtonConatiner: {
+    width: '80%',
+  },
+  submitButton: {
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondary,
+    borderRadius: 10,
   },
 });
 
