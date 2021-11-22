@@ -15,10 +15,12 @@
     "@ui-kitten/components": "^5.1.1",
     "@ui-kitten/eva-icons": "^5.1.1",
     "@viro-community/react-viro": "^2.20.2",
+    "formik": "^2.2.9",
     "fsevents": "^2.3.2",
     "react": "17.0.2",
     "react-native": "0.65.1",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

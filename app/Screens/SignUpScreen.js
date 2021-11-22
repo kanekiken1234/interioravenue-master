@@ -1,24 +1,39 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { Icon, Button, Input } from '@ui-kitten/components';
+import { StyleSheet, View, Text, KeyboardAvoidingView } from 'react-native';
+import { Button } from '@ui-kitten/components';
 import colors from '../config/colors';
 import Screen from '../components/Screen';
+import IconButton from '../components/AppIconButton';
+import AppTextInput from '../components/AppTextInput';
+import * as Yup from 'yup';
+import { AppForm, AppFormField, SubmitButton } from '../components/Forms';
 
 
-const BackButton = (props) => (
-    <Icon {...props} style={{ width: 45, height: 45 }} fill='white' name='corner-up-left-outline' />
-);
+
+
 
 function SignUpScreen() {
-    const [email, setEmail] = React.useState("");
+
+
+    const validationSchema = Yup.object().shape({
+        email: Yup.string().required().email().label("Email"),
+        phone: Yup.string().required().min(10).label("Phone"),
+        password: Yup.string().required().min(4).label("Password"),
+        confirmPassword: Yup.string().required().min(4).label("Confirm Password")
+    });
+
     return (
         <Screen style={styles.background}>
             <View style={styles.mainContainer}>
                 <View style={styles.container1}>
-                    <Button
-                        style={styles.backButton}
-                        appearance='ghost'
-                        accessoryLeft={BackButton}
+                    <IconButton
+                        buttonAppearance='ghost'
+                        buttonWidth={64}
+                        buttonHeight={64}
+                        iconName="corner-up-left-outline"
+                        iconWidth={45}
+                        iconHeight={45}
+                        iconFill="white"
                     />
                 </View>
                 <View style={styles.container2}>
@@ -29,37 +44,27 @@ function SignUpScreen() {
                         <Text style={styles.subHeader}>Please fill the information below.</Text>
                     </View>
                 </View>
-                <View style={styles.container3}>
-                    <Input
-                        placeholderTextColor="#545454"
-                        style={styles.inputField}
+                {/* <View style={styles.container3}>
+                    <AppTextInput
                         placeholder="Email Id"
                         color={colors.white}
                         value={email}
-                        // onChangeText={nextValue => setEmail(nextValue)}
                         size="large"
                     />
-                    <Input
-                        placeholderTextColor="#545454"
-                        style={styles.inputField}
+                    <AppTextInput
                         placeholder="Phone Number"
                         value={email}
                         color={colors.white}
-                        // onChangeText={nextValue => setEmail(nextValue)}
                         size="large"
                     />
-                    <Input
-                        placeholderTextColor="#545454"
-                        style={styles.inputField}
+                    <AppTextInput
                         placeholder="Password"
                         value={email}
                         color={colors.white}
                         // onChangeText={nextValue => setEmail(nextValue)}
                         size="large"
                     />
-                    <Input
-                        placeholderTextColor="#545454"
-                        style={styles.inputField}
+                    <AppTextInput
                         placeholder="Confirm Password"
                         value={email}
                         color={colors.white}
@@ -73,18 +78,72 @@ function SignUpScreen() {
                             Sign Up
                         </Button>
                     </View>
-                </View>
-            </View>
-        </Screen>
+                </View> */}
+                <AppForm
+                    initialValues={{ email: "", phone: "", password: "", confirmPassword: "" }}
+                    onSubmit={values => console.log(values)}
+                    validationSchema={validationSchema}>
+                    <View style={styles.container3}>
+                        <View style={styles.inputFieldContainer}>
+                            <AppFormField
+                                autoCapitalize="none"
+                                autoCorrect={false}
+                                keyboardType="email-address"
+                                name="email"
+                                color={colors.white}
+                                placeholder="Email"
+                                textContentType="emailAddress"
+                                size='large'
+                            />
+                        </View>
+                        <View style={styles.inputFieldContainer}>
+                            <AppFormField
+                                autoCapitalize="none"
+                                autoCorrect={false}
+                                keyboardType="numeric"
+                                name="phone"
+                                placeholder="Phone Number"
+                                color={colors.white}
+                                maxLength={10}
+                                textContentType="telephoneNumber"
+                                size='large'
+                            />
+                        </View>
+                        <View style={styles.inputFieldContainer}>
+                            <AppFormField
+                                autoCapitalize="none"
+                                autoCorrect={false}
+                                name="password"
+                                color={colors.white}
+                                placeholder="Password"
+                                secureTextEntry
+                                textContentType="password"
+                                size='large'
+                            />
+                        </View>
+                        <View style={styles.inputFieldContainer}>
+                            <AppFormField
+                                autoCapitalize="none"
+                                autoCorrect={false}
+                                name="confirmPassword"
+                                color={colors.white}
+                                placeholder="Confirm Password"
+                                secureTextEntry
+                                textContentType="password"
+                                size='large'
+                            />
+                        </View>
+                    </View>
+                    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container4}>
+                        <SubmitButton size='giant' title="Sign In" width="80%" status='basic' />
+                    </KeyboardAvoidingView>
+                </AppForm>
+            </View >
+        </Screen >
     )
 }
 
 const styles = StyleSheet.create({
-    backButton: {
-        width: 64,
-        height: 64,
-        borderRadius: 50,
-    },
     background: {
         backgroundColor: colors.black
     },
@@ -110,18 +169,16 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        bottom: 30
-    },
-    inputField: {
-        backgroundColor: "#1e1c24",
-        borderRadius: 10,
-        borderColor: "#545454",
-        marginBottom: 36,
+        bottom: 30,
     },
     header: {
         color: colors.secondary,
         fontSize: 40,
         fontWeight: "bold"
+    },
+    inputFieldContainer: {
+        width: '100%',
+        marginBottom: 18
     },
     mainContainer: {
         flex: 1
@@ -131,12 +188,7 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
         fontSize: 30
     },
-    submitButton: {
-        backgroundColor: colors.secondary,
-        color: colors.black,
-        borderColor: colors.secondary,
-        borderRadius: 10,
-    }
+
 })
 
 export default SignUpScreen

@@ -1,17 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import { View, StyleSheet, Text, KeyboardAvoidingView } from 'react-native';
 import Screen from '../components/Screen';
-import {Icon, Button, Input} from '@ui-kitten/components';
+import { Button, Input } from '@ui-kitten/components';
 import colors from '../config/colors';
-
-const BackButton = props => (
-  <Icon
-    {...props}
-    style={{height: 45, width: 45}}
-    fill="white"
-    name="corner-up-left-outline"
-  />
-);
+import IconButton from '../components/AppIconButton';
 
 function SigninScreen(props) {
   const [email, setEmail] = React.useState('');
@@ -20,11 +12,14 @@ function SigninScreen(props) {
     <Screen>
       <View style={styles.container}>
         <View style={styles.iconConatiner}>
-          <Button
-            style={styles.icon}
-            appearance="ghost"
-            accessoryLeft={BackButton}
-            onPress={() => console.log('pr')}
+          <IconButton
+            buttonAppearance='ghost'
+            buttonWidth={64}
+            buttonHeight={64}
+            iconName="corner-up-left-outline"
+            iconWidth={45}
+            iconHeight={45}
+            iconFill="white"
           />
         </View>
         <View style={styles.headingContainer}>
@@ -59,15 +54,16 @@ function SigninScreen(props) {
             </View>
           </View>
         </View>
-        <View style={styles.buttonContainer}>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.buttonContainer}>
           <View style={styles.subButtonConatiner}>
+            {/* <View style={styles.subButtonConatiner}> */}
             <Button size="giant" status="basic" style={styles.submitButton}>
               Sign In
             </Button>
           </View>
-        </View>
+        </KeyboardAvoidingView>
       </View>
-    </Screen>
+    </Screen >
   );
 }
 
