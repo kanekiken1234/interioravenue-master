@@ -29,7 +29,11 @@ function WelcomeScreen(props) {
         </View>
         <View style={styles.arrowConatiner}>
           <View style={styles.arrowCircle}>
-            <Icon style={styles.icon} fill="black" name="arrow-right-outline" />
+            <Icon
+              style={styles.icon}
+              fill={colors.black}
+              name="arrow-right-outline"
+            />
           </View>
         </View>
       </View>

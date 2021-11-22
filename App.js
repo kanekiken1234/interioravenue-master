@@ -7,6 +7,7 @@ import {default as myTheme} from './app/config/theme.json';
 import {ThemeContext} from './app/config/theme-context';
 import WelcomeScreen from './app/Screens/WelcomeScreen';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
+import SigninScreen from './app/Screens/SigninScreen';
 
 export default () => {
   const [theme, setTheme] = React.useState('light');
@@ -32,7 +33,8 @@ export default () => {
           </Button>
           <Text>Ruthvik</Text>
         </Layout> */}
-        <WelcomeScreen />
+        {/* <WelcomeScreen /> */}
+        <SigninScreen />
       </ApplicationProvider>
     </ThemeContext.Provider>
   );
