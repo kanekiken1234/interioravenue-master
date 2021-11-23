@@ -16,8 +16,8 @@ function SignUpScreen() {
     const validationSchema = Yup.object().shape({
         email: Yup.string().required().email().label("Email"),
         phone: Yup.string().required().min(10).label("Phone"),
-        password: Yup.string().required().min(4).label("Password"),
-        confirmPassword: Yup.string().required().min(4).label("Confirm Password")
+        password: Yup.string().required().min(5).label("Password"),
+        confirmPassword: Yup.string().required().min(5).label("Confirm Password")
     });
 
     return (
