@@ -6,11 +6,12 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
+import * as Yup from 'yup';
+
 import colors from '../config/colors';
 import Screen from '../components/Screen';
 import IconButton from '../components/AppIconButton';
-import * as Yup from 'yup';
-import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
 
 function SignUpScreen() {
   const validationSchema = Yup.object().shape({
@@ -32,6 +33,8 @@ function SignUpScreen() {
             iconWidth={45}
             iconHeight={45}
             iconFill="white"
+            borderRadius={50}
+            isIconRequired={true}
           />
         </View>
         <View style={styles.container2}>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, ImageBackground, Text } from 'react-native';
+import {View, StyleSheet, ImageBackground, Text} from 'react-native';
 import colors from '../config/colors';
-import { Icon } from '@ui-kitten/components';
+import {Icon, Button} from '@ui-kitten/components';
+import IconButton from '../components/AppIconButton';
 
 function WelcomeScreen(props) {
   return (
@@ -27,13 +28,16 @@ function WelcomeScreen(props) {
           </View>
         </View>
         <View style={styles.arrowConatiner}>
-          <View style={styles.arrowCircle}>
-            <Icon
-              style={styles.icon}
-              fill={colors.black}
-              name="arrow-right-outline"
-            />
-          </View>
+          <IconButton
+            buttonWidth={64}
+            buttonHeight={64}
+            iconName="arrow-right-outline"
+            iconWidth={45}
+            iconHeight={45}
+            iconFill={colors.black}
+            buttonBackgroundColor={colors.secondary}
+            buttonBorderColor={colors.secondary}
+          />
         </View>
       </View>
     </ImageBackground>
@@ -80,6 +84,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   arrowConatiner: {
+    // backgroundColor: 'red',
+    flex: 1,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'flex-end',

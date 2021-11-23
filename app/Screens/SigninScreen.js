@@ -1,16 +1,13 @@
 import React from 'react';
 import {View, StyleSheet, Text, KeyboardAvoidingView} from 'react-native';
+import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
+
 import Screen from '../components/Screen';
-import {Button, Input} from '@ui-kitten/components';
 import colors from '../config/colors';
 import IconButton from '../components/AppIconButton';
 import * as Yup from 'yup';
-import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
 
 function SigninScreen(props) {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(5).label('Password'),
@@ -28,6 +25,8 @@ function SigninScreen(props) {
             iconWidth={45}
             iconHeight={45}
             iconFill="white"
+            borderRadius={50}
+            isIconRequired={true}
           />
         </View>
         <View style={styles.headingContainer}>

@@ -3,9 +3,11 @@ import {StyleSheet} from 'react-native';
 import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
 import {ThemeContext} from './app/config/theme-context';
+import WelcomeScreen from './app/Screens/WelcomeScreen';
 import SigninScreen from './app/Screens/SigninScreen';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import SignUpScreen from './app/Screens/SignUpScreen';
+import RegistrationOptionScreen from './app/Screens/RegistrationOptionScreen';
 
 export default () => {
   const [theme, setTheme] = React.useState('light');
@@ -26,7 +28,8 @@ export default () => {
         </Layout> */}
         {/* <WelcomeScreen /> */}
         {/* <SigninScreen /> */}
-        <SignUpScreen />
+        {/* <SignUpScreen /> */}
+        <RegistrationOptionScreen />
       </ApplicationProvider>
     </ThemeContext.Provider>
   );
