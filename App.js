@@ -1,13 +1,14 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
+import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import * as eva from '@eva-design/eva';
 import {ThemeContext} from './app/config/theme-context';
-import WelcomeScreen from './app/Screens/WelcomeScreen';
-import SigninScreen from './app/Screens/SigninScreen';
-import {EvaIconsPack} from '@ui-kitten/eva-icons';
-import SignUpScreen from './app/Screens/SignUpScreen';
-import RegistrationOptionScreen from './app/Screens/RegistrationOptionScreen';
+import {NavigationContainer} from '@react-navigation/native';
+
+import WelcomeScreenStackNav from './app/navigation/WelcomeScreenStackNav';
+import navigationTheme from './app/navigation/navigationTheme';
 
 export default () => {
   const [theme, setTheme] = React.useState('light');
@@ -16,22 +17,14 @@ export default () => {
     setTheme(nextTheme);
   };
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
-      <ApplicationProvider {...eva} theme={eva[theme]}>
-        <IconRegistry icons={EvaIconsPack} />
-        {/* <Layout
-          style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <Button onPress={toggleTheme} status="basic">
-            SWITCH
-          </Button>
-          <Text>Ruthvik</Text>
-        </Layout> */}
-        {/* <WelcomeScreen /> */}
-        {/* <SigninScreen /> */}
-        {/* <SignUpScreen /> */}
-        <RegistrationOptionScreen />
-      </ApplicationProvider>
-    </ThemeContext.Provider>
+    <NavigationContainer theme={navigationTheme}>
+      <ThemeContext.Provider value={{theme, toggleTheme}}>
+        <ApplicationProvider {...eva} theme={eva[theme]}>
+          <IconRegistry icons={EvaIconsPack} />
+          <WelcomeScreenStackNav />
+        </ApplicationProvider>
+      </ThemeContext.Provider>
+    </NavigationContainer>
   );
 };
 

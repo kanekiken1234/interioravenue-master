@@ -6,7 +6,7 @@ import colors from '../config/colors';
 import Screen from './../components/Screen';
 import IconButton from '../components/AppIconButton';
 
-function RegistrationOptionScreen(props) {
+function RegistrationOptionScreen({navigation}) {
   return (
     <Screen>
       <View style={styles.mainContainer}>
@@ -37,6 +37,7 @@ function RegistrationOptionScreen(props) {
               status="basic"
               borderRadius={10}
               size="large"
+              onPress={() => navigation.navigate('Register')}
             />
             <IconButton
               buttonHeight={50}
@@ -48,6 +49,7 @@ function RegistrationOptionScreen(props) {
               status="basic"
               borderRadius={10}
               size="large"
+              onPress={() => navigation.navigate('LogIn')}
             />
           </View>
         </View>
@@ -68,7 +70,6 @@ const styles = StyleSheet.create({
   Container1: {
     alignItems: 'center',
     width: '100%',
-    // backgroundColor: 'green',
   },
   buttonContainer: {
     width: '100%',
@@ -76,20 +77,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   container2: {
-    // backgroundColor: 'red',
     width: '100%',
     marginTop: 50,
     alignItems: 'center',
   },
   container3: {
     marginTop: 10,
-    // backgroundColor: 'yellow',
     width: '100%',
     alignItems: 'center',
   },
   container4: {
     width: '100%',
-    // backgroundColor: 'purple',
     alignItems: 'center',
     justifyContent: 'flex-end',
     flex: 1,

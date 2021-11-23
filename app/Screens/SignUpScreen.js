@@ -13,7 +13,7 @@ import colors from '../config/colors';
 import Screen from '../components/Screen';
 import IconButton from '../components/AppIconButton';
 
-function SignUpScreen() {
+function SignUpScreen({navigation}) {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     phone: Yup.string().required().min(10).label('Phone'),
@@ -35,6 +35,7 @@ function SignUpScreen() {
             iconFill="white"
             borderRadius={50}
             isIconRequired={true}
+            onPress={() => navigation.navigate('Registration Option')}
           />
         </View>
         <View style={styles.container2}>

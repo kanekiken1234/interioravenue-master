@@ -4,7 +4,16 @@ import colors from '../config/colors';
 import {Icon, Button} from '@ui-kitten/components';
 import IconButton from '../components/AppIconButton';
 
-function WelcomeScreen(props) {
+const homeIcon = props => (
+  <Icon
+    {...props}
+    fill="black"
+    style={{height: 45, width: 45}}
+    name="arrow-right-outline"
+  />
+);
+
+function WelcomeScreen({navigation}) {
   return (
     <ImageBackground
       style={styles.container}
@@ -37,6 +46,9 @@ function WelcomeScreen(props) {
             iconFill={colors.black}
             buttonBackgroundColor={colors.secondary}
             buttonBorderColor={colors.secondary}
+            borderRadius={50}
+            isIconRequired={true}
+            onPress={() => navigation.navigate('Registration Option')}
           />
         </View>
       </View>
@@ -84,7 +96,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   arrowConatiner: {
-    // backgroundColor: 'red',
     flex: 1,
     width: '100%',
     justifyContent: 'center',
@@ -98,10 +109,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.secondary,
-  },
-  icon: {
-    width: 45,
-    height: 45,
   },
 });
 

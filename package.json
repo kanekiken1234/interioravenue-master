@@ -12,6 +12,9 @@
   "dependencies": {
     "@eva-design/eva": "^2.1.1",
     "@react-native-community/hooks": "^2.8.1",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/native": "^5.9.8",
+    "@react-navigation/stack": "^5.14.9",
     "@ui-kitten/components": "^5.1.1",
     "@ui-kitten/eva-icons": "^5.1.1",
     "@viro-community/react-viro": "^2.20.2",
@@ -20,6 +23,10 @@
     "lottie-react-native": "^5.0.0",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "^2.2.4",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.9.0",
     "react-native-svg": "^12.1.1",
     "yup": "^0.32.11"
   },

@@ -7,7 +7,7 @@ import colors from '../config/colors';
 import IconButton from '../components/AppIconButton';
 import * as Yup from 'yup';
 
-function SigninScreen(props) {
+function SigninScreen({navigation}) {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(5).label('Password'),
@@ -27,6 +27,7 @@ function SigninScreen(props) {
             iconFill="white"
             borderRadius={50}
             isIconRequired={true}
+            onPress={() => navigation.navigate('Registration Option')}
           />
         </View>
         <View style={styles.headingContainer}>

@@ -1,6 +1,7 @@
 package com.myviroapp;
 
 import com.facebook.react.ReactActivity;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +13,8 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "myviroapp";
   }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(null);
+}
 }

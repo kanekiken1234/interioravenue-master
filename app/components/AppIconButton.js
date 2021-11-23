@@ -17,6 +17,7 @@ function IconButton({
   borderRadius = 0,
   name,
   size = 'medium',
+  onPress,
 }) {
   const ButtonIcon = props => (
     <Icon
@@ -46,6 +47,7 @@ function IconButton({
       appearance={buttonAppearance}
       status={status}
       size={size}
+      onPress={onPress}
       accessoryLeft={isIconRequired ? ButtonIcon : null}>
       {name}
     </Button>
