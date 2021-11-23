@@ -1,10 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text, KeyboardAvoidingView } from 'react-native';
-import { Button } from '@ui-kitten/components';
+import { StyleSheet, View, Text, KeyboardAvoidingView, Platform } from 'react-native';
 import colors from '../config/colors';
 import Screen from '../components/Screen';
 import IconButton from '../components/AppIconButton';
-import AppTextInput from '../components/AppTextInput';
 import * as Yup from 'yup';
 import { AppForm, AppFormField, SubmitButton } from '../components/Forms';
 
@@ -44,41 +42,6 @@ function SignUpScreen() {
                         <Text style={styles.subHeader}>Please fill the information below.</Text>
                     </View>
                 </View>
-                {/* <View style={styles.container3}>
-                    <AppTextInput
-                        placeholder="Email Id"
-                        color={colors.white}
-                        value={email}
-                        size="large"
-                    />
-                    <AppTextInput
-                        placeholder="Phone Number"
-                        value={email}
-                        color={colors.white}
-                        size="large"
-                    />
-                    <AppTextInput
-                        placeholder="Password"
-                        value={email}
-                        color={colors.white}
-                        // onChangeText={nextValue => setEmail(nextValue)}
-                        size="large"
-                    />
-                    <AppTextInput
-                        placeholder="Confirm Password"
-                        value={email}
-                        color={colors.white}
-                        // onChangeText={nextValue => setEmail(nextValue)}
-                        size="large"
-                    />
-                </View>
-                <View style={styles.container4}>
-                    <View style={styles.buttonContainer}>
-                        <Button size="giant" status="basic" style={styles.submitButton}>
-                            Sign Up
-                        </Button>
-                    </View>
-                </View> */}
                 <AppForm
                     initialValues={{ email: "", phone: "", password: "", confirmPassword: "" }}
                     onSubmit={values => console.log(values)}
@@ -134,7 +97,10 @@ function SignUpScreen() {
                             />
                         </View>
                     </View>
-                    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container4}>
+                    <KeyboardAvoidingView
+                        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+                        keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+                        style={styles.container4}>
                         <SubmitButton size='giant' title="Sign In" width="80%" status='basic' />
                     </KeyboardAvoidingView>
                 </AppForm>

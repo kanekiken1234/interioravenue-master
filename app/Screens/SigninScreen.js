@@ -54,7 +54,10 @@ function SigninScreen(props) {
             </View>
           </View>
         </View>
-        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.buttonContainer}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+          style={styles.buttonContainer}>
           <View style={styles.subButtonConatiner}>
             {/* <View style={styles.subButtonConatiner}> */}
             <Button size="giant" status="basic" style={styles.submitButton}>

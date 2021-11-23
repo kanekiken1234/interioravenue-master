@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground, Text} from 'react-native';
+import { View, StyleSheet, ImageBackground, Text } from 'react-native';
 import colors from '../config/colors';
-import {Icon} from '@ui-kitten/components';
+import { Icon } from '@ui-kitten/components';
 
 function WelcomeScreen(props) {
   return (
