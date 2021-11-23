@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
+import {StyleSheet} from 'react-native';
+import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
-import { ThemeContext } from './app/config/theme-context';
+import {ThemeContext} from './app/config/theme-context';
 import SigninScreen from './app/Screens/SigninScreen';
-import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import SignUpScreen from './app/Screens/SignUpScreen';
 
 export default () => {
@@ -14,7 +14,7 @@ export default () => {
     setTheme(nextTheme);
   };
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
       <ApplicationProvider {...eva} theme={eva[theme]}>
         <IconRegistry icons={EvaIconsPack} />
         {/* <Layout
@@ -33,7 +33,7 @@ export default () => {
 };
 
 var styles = StyleSheet.create({
-  f1: { flex: 1 },
+  f1: {flex: 1},
   helloWorldTextStyle: {
     fontFamily: 'Arial',
     fontSize: 30,

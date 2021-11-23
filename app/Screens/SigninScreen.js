@@ -1,19 +1,27 @@
 import React from 'react';
-import { View, StyleSheet, Text, KeyboardAvoidingView } from 'react-native';
+import {View, StyleSheet, Text, KeyboardAvoidingView} from 'react-native';
 import Screen from '../components/Screen';
-import { Button, Input } from '@ui-kitten/components';
+import {Button, Input} from '@ui-kitten/components';
 import colors from '../config/colors';
 import IconButton from '../components/AppIconButton';
+import * as Yup from 'yup';
+import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
 
 function SigninScreen(props) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().required().email().label('Email'),
+    password: Yup.string().required().min(5).label('Password'),
+  });
+
   return (
     <Screen>
       <View style={styles.container}>
         <View style={styles.iconConatiner}>
           <IconButton
-            buttonAppearance='ghost'
+            buttonAppearance="ghost"
             buttonWidth={64}
             buttonHeight={64}
             iconName="corner-up-left-outline"
@@ -28,45 +36,53 @@ function SigninScreen(props) {
             <Text style={styles.subHeading}>Welcome back.</Text>
             <Text style={styles.subHeading}>You've been missed !</Text>
           </View>
+        </View>
+        <AppForm
+          initialValues={{email: '', password: ''}}
+          onSubmit={values => console.log(values)}
+          validationSchema={validationSchema}>
           <View style={styles.inputContainer}>
             <View style={styles.inputFiled}>
-              <Input
-                style={styles.input}
+              <AppFormField
+                autoCapitalize="none"
+                autoCorrect={false}
+                keyboardType="email-address"
+                name="email"
+                textContentType="emailAddress"
                 placeholder="Enter Your Email Id"
-                value={email}
-                placeholderTextColor="#545454"
                 color={colors.white}
-                onChangeText={nextValue => setEmail(nextValue)}
                 size="large"
               />
             </View>
             <View style={styles.inputFiled}>
-              <Input
-                style={styles.input}
+              <AppFormField
+                autoCapitalize="none"
+                autoCorrect={false}
+                name="password"
+                color={colors.white}
                 placeholder="Enter Password"
                 secureTextEntry
-                value={password}
-                placeholderTextColor="#545454"
-                color={colors.white}
-                onChangeText={nextValue => setPassword(nextValue)}
+                textContentType="password"
                 size="large"
               />
             </View>
           </View>
-        </View>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-          keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
-          style={styles.buttonContainer}>
-          <View style={styles.subButtonConatiner}>
-            {/* <View style={styles.subButtonConatiner}> */}
-            <Button size="giant" status="basic" style={styles.submitButton}>
-              Sign In
-            </Button>
-          </View>
-        </KeyboardAvoidingView>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+            style={styles.buttonContainer}>
+            <View style={styles.subButtonConatiner}>
+              <SubmitButton
+                size="giant"
+                title="Sign In"
+                width="100%"
+                status="basic"
+              />
+            </View>
+          </KeyboardAvoidingView>
+        </AppForm>
       </View>
-    </Screen >
+    </Screen>
   );
 }
 
