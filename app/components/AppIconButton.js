@@ -25,7 +25,6 @@ function IconButton({
       style={{ width: iconWidth, height: iconHeight }}
       fill={iconFill}
       name={iconName}
-      {...props}
     />
   );
 
