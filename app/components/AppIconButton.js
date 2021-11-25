@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Icon} from '@ui-kitten/components';
+import { Button, Icon } from '@ui-kitten/components';
 import colors from '../config/colors';
 
 function IconButton({
@@ -22,9 +22,10 @@ function IconButton({
   const ButtonIcon = props => (
     <Icon
       {...props}
-      style={{width: iconWidth, height: iconHeight}}
+      style={{ width: iconWidth, height: iconHeight }}
       fill={iconFill}
       name={iconName}
+      {...props}
     />
   );
 
