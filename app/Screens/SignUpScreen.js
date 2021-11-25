@@ -4,22 +4,35 @@ import {
   View,
   Text,
   KeyboardAvoidingView,
+  ToastAndroid,
+  AlertIOS,
   Platform,
 } from 'react-native';
-import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
+import { AppForm, AppFormField, SubmitButton } from '../components/Forms';
 import * as Yup from 'yup';
 
 import colors from '../config/colors';
 import Screen from '../components/Screen';
 import IconButton from '../components/AppIconButton';
 
-function SignUpScreen({navigation}) {
+function SignUpScreen({ navigation }) {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     phone: Yup.string().required().min(10).label('Phone'),
     password: Yup.string().required().min(5).label('Password'),
     confirmPassword: Yup.string().required().min(5).label('Confirm Password'),
   });
+
+  const handleSubmit = (values) => {
+    console.log(values)
+    if (values.confirmPassword != values.password) {
+      if (Platform.OS === 'android')
+        ToastAndroid.show("Icorrect 'Confirm Password' Field.", ToastAndroid.SHORT)
+      else
+        AlertIOS.alert("Icorrect 'Confirm Password' Field.")
+    }
+    
+  }
 
   return (
     <Screen style={styles.background}>
@@ -55,7 +68,7 @@ function SignUpScreen({navigation}) {
             password: '',
             confirmPassword: '',
           }}
-          onSubmit={values => console.log(values)}
+          onSubmit={values => handleSubmit(values)}
           validationSchema={validationSchema}>
           <View style={styles.container3}>
             <View style={styles.inputFieldContainer}>
