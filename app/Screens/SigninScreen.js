@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   inputFiled: {
     width: '100%',
-    marginBottom: 36,
+    marginBottom: 18,
   },
   input: {
     backgroundColor: '#1E1C24',
