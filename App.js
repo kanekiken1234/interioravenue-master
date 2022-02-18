@@ -1,45 +1,48 @@
-import React, {useState} from 'react';
+import 'react-native-gesture-handler';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet} from 'react-native';
-import {
-  ViroARScene,
-  ViroText,
-  ViroConstants,
-  ViroARSceneNavigator,
-} from '@viro-community/react-viro';
+import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
+import {EvaIconsPack} from '@ui-kitten/eva-icons';
+import * as eva from '@eva-design/eva';
+import {ThemeContext} from './app/config/theme-context';
+import {NavigationContainer} from '@react-navigation/native';
+import jwt_decode from 'jwt-decode';
 
-const HelloWorldSceneAR = () => {
-  const [text, setText] = useState('Initializing AR...');
-
-  function onInitialized(state, reason) {
-    console.log('guncelleme', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      setText('Hello World!');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  }
-
-  return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
-      <ViroText
-        text={text}
-        scale={[0.5, 0.5, 0.5]}
-        position={[0, 0, -1]}
-        style={styles.helloWorldTextStyle}
-      />
-    </ViroARScene>
-  );
-};
+import WelcomeScreenStackNav from './app/navigation/WelcomeScreenStackNav';
+import navigationTheme from './app/navigation/navigationTheme';
+import AuthContext from './app/auth/context';
+import HomeScreen from './app/Screens/HomeScreen';
+import authStorage from './app/auth/storage';
 
 export default () => {
+  const [theme, setTheme] = useState('light');
+  const [user, setUser] = useState(null);
+  const restoreTOken = async () => {
+    const token = await authStorage.get();
+    console.log('token:', token);
+    if (!token) return;
+    setUser(jwt_decode(token));
+  };
+
+  useEffect(() => {
+    restoreTOken();
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+  };
   return (
-    <ViroARSceneNavigator
-      autofocus={true}
-      initialScene={{
-        scene: HelloWorldSceneAR,
-      }}
-      style={styles.f1}
-    />
+    <AuthContext.Provider value={{user, setUser}}>
+      <NavigationContainer theme={navigationTheme}>
+        <ThemeContext.Provider value={{theme, toggleTheme}}>
+          <ApplicationProvider {...eva} theme={eva[theme]}>
+            <IconRegistry icons={EvaIconsPack} />
+            {user ? <HomeScreen /> : <WelcomeScreenStackNav />}
+          </ApplicationProvider>
+        </ThemeContext.Provider>
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
 };
 
