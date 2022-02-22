@@ -1,21 +1,58 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import * as eva from '@eva-design/eva';
+import { ThemeContext } from './app/config/theme-context';
+import { NavigationContainer } from '@react-navigation/native';
+import jwt_decode from 'jwt-decode';
 
-export default function App() {
+import WelcomeScreenStackNav from './app/navigation/WelcomeScreenStackNav';
+import navigationTheme from './app/navigation/navigationTheme';
+import AuthContext from './app/auth/context';
+import HomeScreen from './app/Screens/HomeScreen';
+import authStorage from './app/auth/storage';
+
+export default () => {
+  const [theme, setTheme] = useState('light');
+  const [user, setUser] = useState(null);
+  const restoreTOken = async () => {
+    const token = await authStorage.get();
+    console.log('token:', token);
+    if (!token) return;
+    setUser(jwt_decode(token));
+  };
+
+  useEffect(() => {
+    restoreTOken();
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+  };
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <NavigationContainer theme={navigationTheme}>
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+          <ApplicationProvider {...eva} theme={eva[theme]}>
+            <IconRegistry icons={EvaIconsPack} />
+            {user ? <HomeScreen /> : <WelcomeScreenStackNav />}
+          </ApplicationProvider>
+        </ThemeContext.Provider>
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+var styles = StyleSheet.create({
+  f1: { flex: 1 },
+  helloWorldTextStyle: {
+    fontFamily: 'Arial',
+    fontSize: 30,
+    color: '#ffffff',
+    textAlignVertical: 'center',
+    textAlign: 'center',
   },
 });
