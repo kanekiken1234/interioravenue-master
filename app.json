@@ -6,13 +6,8 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "plugins": [
-      [
-        "@viro-community/react-viro",
-        {
-          "androidXrMode": "AR"
-        }
-      ]
-    ]
+    "android": {
+      "package": "com.interioiacenueexpo"
+    }
   }
 }

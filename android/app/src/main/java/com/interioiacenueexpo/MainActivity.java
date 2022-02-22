@@ -1,4 +1,4 @@
-package com.interioravenueexpo;
+package com.interioiacenueexpo;
 
 import android.os.Build;
 import android.os.Bundle;

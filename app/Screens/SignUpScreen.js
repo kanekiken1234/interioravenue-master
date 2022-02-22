@@ -142,7 +142,7 @@ function SignUpScreen({navigation}) {
           </View>
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-            keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 40}
             style={styles.container4}>
             <SubmitButton
               size="giant"
