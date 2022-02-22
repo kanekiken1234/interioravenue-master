@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "interioravenue_expo",
+    "slug": "interioravenue_expo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
