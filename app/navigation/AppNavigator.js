@@ -18,7 +18,6 @@ const AppNavigator = ()=>{
             inactiveTintColor:"grey",
             labelStyle:{
                 fontWeight: "bold",
-                letterSpacing: 1.2,
                 fontSize: 11
             }
         }}
