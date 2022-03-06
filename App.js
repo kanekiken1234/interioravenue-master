@@ -9,6 +9,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import jwt_decode from 'jwt-decode';
 
 import WelcomeScreenStackNav from './app/navigation/WelcomeScreenStackNav';
+import AppNavigator from './app/navigation/AppNavigator';
 import navigationTheme from './app/navigation/navigationTheme';
 import AuthContext from './app/auth/context';
 import HomeScreen from './app/Screens/HomeScreen';
@@ -38,7 +39,7 @@ export default () => {
         <ThemeContext.Provider value={{theme, toggleTheme}}>
           <ApplicationProvider {...eva} theme={eva[theme]}>
             <IconRegistry icons={EvaIconsPack} />
-            {user ? <HomeScreen /> : <WelcomeScreenStackNav />}
+            {user ? <AppNavigator /> : <WelcomeScreenStackNav />}
           </ApplicationProvider>
         </ThemeContext.Provider>
       </NavigationContainer>

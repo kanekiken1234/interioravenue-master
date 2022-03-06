@@ -2,11 +2,11 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Screen from '../components/Screen';
 
-function HomeScreen() {
+function CategoryScreen() {
 
   return (
     <View>
-      <Text>Home</Text>
+      <Text>Category</Text>
     </View>
    
   );
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default CategoryScreen;
