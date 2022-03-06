@@ -2,8 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
     <key>NSCameraUsageDescription</key>
     <string>The camera is needed for AR functionality</string>
+=======
+>>>>>>> homescreen
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -15,7 +18,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+<<<<<<< HEAD
 	<string>Interior Avenue</string>
+=======
+	<string>$(PRODUCT_NAME)</string>
+>>>>>>> homescreen
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -37,6 +44,11 @@
 			</dict>
 		</dict>
 	</dict>
+<<<<<<< HEAD
+=======
+	<key>NSCameraUsageDescription</key>
+	<string>The camera is needed for AR functionality</string>
+>>>>>>> homescreen
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

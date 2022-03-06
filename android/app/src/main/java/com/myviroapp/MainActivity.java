@@ -1,7 +1,10 @@
 package com.myviroapp;
 
 import com.facebook.react.ReactActivity;
+<<<<<<< HEAD
 import android.os.Bundle;
+=======
+>>>>>>> homescreen
 
 public class MainActivity extends ReactActivity {
 
@@ -13,8 +16,11 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "myviroapp";
   }
+<<<<<<< HEAD
   @Override
   protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(null);
 }
+=======
+>>>>>>> homescreen
 }

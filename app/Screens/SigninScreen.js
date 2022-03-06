@@ -1,18 +1,55 @@
+<<<<<<< HEAD
 import React from 'react';
 import {View, StyleSheet, Text, KeyboardAvoidingView} from 'react-native';
 import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
+=======
+import React, {useState, useContext} from 'react';
+import {View, StyleSheet, Text, KeyboardAvoidingView} from 'react-native';
+import {
+  AppForm,
+  AppFormField,
+  SubmitButton,
+  ErrorMessage,
+} from '../components/Forms';
+import * as Yup from 'yup';
+import jwt_decode from 'jwt-decode';
+>>>>>>> homescreen
 
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import IconButton from '../components/AppIconButton';
+<<<<<<< HEAD
 import * as Yup from 'yup';
 
 function SigninScreen({navigation}) {
+=======
+import authApi from '../api/auth';
+import AuthContext from '../auth/context';
+import authStorage from '../auth/storage';
+
+function SigninScreen({navigation}) {
+  const authContext = useContext(AuthContext);
+  const [loginFailed, setLoginFailed] = useState(false);
+
+>>>>>>> homescreen
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(5).label('Password'),
   });
 
+<<<<<<< HEAD
+=======
+  const handleSubmit = async values => {
+    const {email, password} = values;
+    const result = await authApi.login(email, password);
+    if (!result.ok) return setLoginFailed(true);
+    setLoginFailed(false);
+    const user = jwt_decode(result.data);
+    authContext.setUser(user);
+    authStorage.store(result.data);
+  };
+
+>>>>>>> homescreen
   return (
     <Screen>
       <View style={styles.container}>
@@ -39,10 +76,21 @@ function SigninScreen({navigation}) {
         </View>
         <AppForm
           initialValues={{email: '', password: ''}}
+<<<<<<< HEAD
           onSubmit={values => console.log(values)}
           validationSchema={validationSchema}>
           <View style={styles.inputContainer}>
             <View style={styles.inputFiled}>
+=======
+          onSubmit={values => handleSubmit(values)}
+          validationSchema={validationSchema}>
+          <View style={styles.inputContainer}>
+            <View style={styles.inputFiled}>
+              <ErrorMessage
+                error="Invalid email and/or password"
+                visible={loginFailed}
+              />
+>>>>>>> homescreen
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}

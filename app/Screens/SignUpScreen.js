@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, {useState, useContext} from 'react';
+>>>>>>> homescreen
 import {
   StyleSheet,
   View,
@@ -8,14 +12,30 @@ import {
   AlertIOS,
   Platform,
 } from 'react-native';
+<<<<<<< HEAD
 import { AppForm, AppFormField, SubmitButton } from '../components/Forms';
 import * as Yup from 'yup';
+=======
+import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
+import * as Yup from 'yup';
+import jwt_decode from 'jwt-decode';
+>>>>>>> homescreen
 
 import colors from '../config/colors';
 import Screen from '../components/Screen';
 import IconButton from '../components/AppIconButton';
+<<<<<<< HEAD
 
 function SignUpScreen({ navigation }) {
+=======
+import authApi from '../api/auth';
+import AuthContext from './../auth/context';
+import authStorage from '../auth/storage';
+
+function SignUpScreen({navigation}) {
+  const authContext = useContext(AuthContext);
+
+>>>>>>> homescreen
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     phone: Yup.string().required().min(10).label('Phone'),
@@ -23,6 +43,7 @@ function SignUpScreen({ navigation }) {
     confirmPassword: Yup.string().required().min(5).label('Confirm Password'),
   });
 
+<<<<<<< HEAD
   const handleSubmit = (values) => {
     console.log(values)
     if (values.confirmPassword != values.password) {
@@ -33,6 +54,20 @@ function SignUpScreen({ navigation }) {
     }
     
   }
+=======
+  const handleSubmit = async values => {
+    const {email, phone, password} = values;
+    const result = await authApi.signup(email, password, phone);
+    if (!result.ok) {
+      console.log(result.data.error);
+      ToastAndroid.show(result.data.error, ToastAndroid.LONG);
+    }
+    const user = jwt_decode(result.data);
+    authContext.setUser(user);
+    authStorage.store(result.data);
+    ToastAndroid.show('done', ToastAndroid.LONG);
+  };
+>>>>>>> homescreen
 
   return (
     <Screen style={styles.background}>
@@ -71,6 +106,20 @@ function SignUpScreen({ navigation }) {
           onSubmit={values => handleSubmit(values)}
           validationSchema={validationSchema}>
           <View style={styles.container3}>
+<<<<<<< HEAD
+=======
+            {/* <View style={styles.inputFieldContainer}>
+              <AppFormField
+                autoCapitalize="none"
+                autoCorrect={false}
+                name="name"
+                color={colors.white}
+                placeholder="Enter Your Name"
+                textContentType="name"
+                size="large"
+              />
+            </View> */}
+>>>>>>> homescreen
             <View style={styles.inputFieldContainer}>
               <AppFormField
                 autoCapitalize="none"

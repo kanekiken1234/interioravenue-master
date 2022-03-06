@@ -11,16 +11,30 @@
   },
   "dependencies": {
     "@eva-design/eva": "^2.1.1",
+<<<<<<< HEAD
     "@react-native-community/hooks": "^2.8.1",
     "@react-native-community/masked-view": "^0.1.11",
+=======
+    "@react-native-async-storage/async-storage": "^1.15.13",
+    "@react-native-community/hooks": "^2.8.1",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/bottom-tabs": "^5.11.15",
+>>>>>>> homescreen
     "@react-navigation/native": "^5.9.8",
     "@react-navigation/stack": "^5.14.9",
     "@ui-kitten/components": "^5.1.1",
     "@ui-kitten/eva-icons": "^5.1.1",
     "@viro-community/react-viro": "^2.20.2",
+<<<<<<< HEAD
     "axios": "^0.24.0",
     "formik": "^2.2.9",
     "fsevents": "^2.3.2",
+=======
+    "apisauce": "^2.1.2",
+    "formik": "^2.2.9",
+    "fsevents": "^2.3.2",
+    "jwt-decode": "^3.1.2",
+>>>>>>> homescreen
     "lottie-react-native": "^5.0.0",
     "react": "17.0.2",
     "react-native": "0.65.1",
