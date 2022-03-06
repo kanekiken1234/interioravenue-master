@@ -1,18 +1,4 @@
-<<<<<<< HEAD
-import React from 'react'
-import { View, Text } from 'react-native'
-import Screen from '../components/Screen'
 
-function HomeScreen() {
-    return (
-        <Screen>
-            <View><Text>HOME SCREEN</Text></View>
-        </Screen>
-    )
-}
-
-export default HomeScreen
-=======
 import React from 'react';
 import {View, Text, StyleSheet,TouchableWithoutFeedback, FlatList,ScrollView} from 'react-native';
 import { Input,Icon } from '@ui-kitten/components';
@@ -152,4 +138,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
->>>>>>> homescreen
