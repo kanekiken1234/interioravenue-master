@@ -16,28 +16,28 @@ const renderIcon = (props) => (
 const listing =[
   {
     id:1,
-    title:"Temp card",
+    title:"Temp card 1",
     subTitle:"Description goes here Description goes here Description goes here Description goes here Description goes here",
     price:"Rs.560",
-    image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+    image: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/models/Chairs/202/IKE080012_png/IKEA-Folke_Chair-3D.png"
   },
   {
     id:2,
-    title:"Temp card",
+    title:"Temp card 2",
     subTitle:"Description goes here Description goes here Description goes here Description goes here Description goes here",
     price:"Rs.960",
-    image: "https://wallpaperaccess.com/full/271965.jpg"
+    image: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/models/Desks/502/IKE060012_png/Alve_Desk.png"
   },
   {
     id:3,
-    title:"Temp card",
+    title:"Temp card 3",
     subTitle:"Description goes here Description goes here Description goes here Description goes here Description goes here",
     price:"Rs.1060",
-    image: "https://images3.alphacoders.com/823/thumb-1920-82317.jpg"
+    image: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/models/Sofa/303/IKE040019_png/IKEA-Tylosand_3_Seat_Sofa_Bed-3D.png"
   },
 ]
 
-function HomeScreen() {
+function HomeScreen({navigation}) {
 
   return (
     <Screen style={styles.background}>
@@ -79,14 +79,15 @@ function HomeScreen() {
           />
         }
         /> */}
-        {listing.map(({id,title,subTitle,image,price})=>{
+        {listing.map((item)=>{
           return (
             <Card
-              key={id}
-              title={title}
-              subTitle={subTitle}
-              imageUrl={image}
-              price={price}
+              key={item.id}
+              title={item.title}
+              subTitle={item.subTitle}
+              imageUrl={item.image}
+              price={item.price}
+              onPress={()=>navigation.navigate("ItemDetails",item)}
             />
           )
         })}

@@ -13,6 +13,7 @@ function Card({ title, subTitle, price, imageUrl, onPress, thumbnailUrl }) {
 					source={{
                         uri:imageUrl
                     }}
+					resizeMode="center"
 				/>
 				<View style={styles.detailsContainer}>
 					<Text style={styles.title}>
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
 	image: {
 		width: "100%",
 		height: 200,
+		
 	},
 	price: {
 		color: colors.black,

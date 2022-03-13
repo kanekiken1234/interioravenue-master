@@ -20,7 +20,8 @@ const FeedNavigator = () => (
 		<Stack.Screen
 			name="ItemDetails"
 			component={ItemDetailsScreen}
-			options={{ title: "" }}
+			// options={{ title: "" }}
+            options={{ headerShown: false }}
 		
 		/>
 	</Stack.Navigator>

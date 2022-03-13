@@ -35,17 +35,17 @@ export default () => {
     setTheme(nextTheme);
   };
   return (
-    // <AuthContext.Provider value={{user, setUser}}>
-    //   <NavigationContainer theme={navigationTheme}>
-    //     <ThemeContext.Provider value={{theme, toggleTheme}}>
-    //       <ApplicationProvider {...eva} theme={eva[theme]}>
-    //         <IconRegistry icons={EvaIconsPack} />
-    //         {user ? <AppNavigator /> : <WelcomeScreenStackNav />}
-    //       </ApplicationProvider>
-    //     </ThemeContext.Provider>
-    //   </NavigationContainer>
-    // </AuthContext.Provider>
-    <ItemDetailsScreen />
+    <AuthContext.Provider value={{user, setUser}}>
+      <NavigationContainer theme={navigationTheme}>
+        <ThemeContext.Provider value={{theme, toggleTheme}}>
+          <ApplicationProvider {...eva} theme={eva[theme]}>
+            <IconRegistry icons={EvaIconsPack} />
+            {user ? <AppNavigator /> : <WelcomeScreenStackNav />}
+          </ApplicationProvider>
+        </ThemeContext.Provider>
+      </NavigationContainer>
+    </AuthContext.Provider>
+    // <ItemDetailsScreen />
   );
 };
 

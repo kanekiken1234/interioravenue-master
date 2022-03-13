@@ -1,58 +1,68 @@
 import React from "react";
 import { View, StyleSheet, StatusBar,Text,Image } from "react-native";
-// import { Image } from "react-native-expo-image-cache";
-import colors from "../config/colors";
 
-function ItemDetailsScreen() {
-	// const listing = route.params;
+import Screen from "../components/Screen";
+import colors from "../config/colors";
+import AppIconButton from "../components/AppIconButton";
+
+function ItemDetailsScreen({route}) {
+	const listing = route.params;
 	return (
-		<View style={styles.mainContainer}>
+		<Screen>
+		<View style={styles.imageContainer}>
 			<Image
 				style={styles.image}
-				// uri={listing.images[0].url}
-                source={{
-                    uri:"https://images3.alphacoders.com/823/thumb-1920-82317.jpg"
-                }}
+				source={{
+					uri:listing.image
+				}}
+				resizeMode="center"
 			/>
-			<View style={styles.detailsContainer}>
-				<Text style={styles.title}>Title</Text>
-				<Text style={styles.price}>Sub-Title</Text>
-				<View style={styles.userContainer}>
-					{/* <ListItem
-						image={require("../assets/profile.jpg")}
-						title="Ankit Pandey"
-						subTitle="5 Listings"
-					/> */}
-				</View>
-			</View>
 		</View>
+		<View style={styles.profileContent}>
+			<Text style={styles.title}>{listing.title}</Text>
+			<Text style={styles.subTitle}>{listing.subTitle}</Text>
+			<Text style={styles.price}>{listing.price}</Text>
+		</View>
+		</Screen>
 	);
 }
 
 const styles = StyleSheet.create({
-	mainContainer: {
-		// paddingTop: StatusBar.currentHeight,
-	},
-	detailsContainer: {
-		padding: 20,
+	imageContainer:{
+		flex:0.7
 	},
 	image: {
 		width: "100%",
-		height: 300,
+		height: "100%",
 	},
-	price: {
-		color: colors.secondary,
+    price: {
+		color: colors.black,
 		fontWeight: "bold",
-		fontSize: 20,
-		marginVertical: 10,
+        fontSize:40
 	},
-	title: {
-		fontSize: 24,
-		fontWeight: "500",
+    title: {
+		marginBottom: 5,
+        fontSize: 25,
+        color:colors.light,
+		fontWeight:"bold",
 	},
-	userContainer: {
-		marginVertical: 40,
-	},
+    subTitle:{
+        marginBottom: 20,
+        fontSize: 16,
+        color:colors.medium,
+    },
+	profileContent: {
+		overflow: 'hidden',
+		borderTopLeftRadius: 40,
+		borderTopRightRadius: 40,
+		elevation: 35,
+		backgroundColor:colors.white,
+		position:"absolute",
+		bottom:0,
+		width:"100%",
+		height: 300,
+		padding:20
+	  },
 });
 
 export default ItemDetailsScreen;
