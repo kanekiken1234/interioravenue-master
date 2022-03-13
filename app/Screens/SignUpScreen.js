@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import {
   StyleSheet,
   View,
@@ -8,7 +8,7 @@ import {
   AlertIOS,
   Platform,
 } from 'react-native';
-import {AppForm, AppFormField, SubmitButton} from '../components/Forms';
+import { AppForm, AppFormField, SubmitButton } from '../components/Forms';
 import * as Yup from 'yup';
 import jwt_decode from 'jwt-decode';
 
@@ -19,10 +19,11 @@ import authApi from '../api/auth';
 import AuthContext from './../auth/context';
 import authStorage from '../auth/storage';
 
-function SignUpScreen({navigation}) {
+function SignUpScreen({ navigation }) {
   const authContext = useContext(AuthContext);
 
   const validationSchema = Yup.object().shape({
+    name: Yup.string().required(),
     email: Yup.string().required().email().label('Email'),
     phone: Yup.string().required().min(10).label('Phone'),
     password: Yup.string().required().min(5).label('Password'),
@@ -30,8 +31,8 @@ function SignUpScreen({navigation}) {
   });
 
   const handleSubmit = async values => {
-    const {email, phone, password} = values;
-    const result = await authApi.signup(email, password, phone);
+    const { name, email, phone, password } = values;
+    const result = await authApi.signup(name, email, password, phone);
     if (!result.ok) {
       console.log(result.data.error);
       ToastAndroid.show(result.data.error, ToastAndroid.LONG);
@@ -71,6 +72,7 @@ function SignUpScreen({navigation}) {
         </View>
         <AppForm
           initialValues={{
+            name: '',
             email: '',
             phone: '',
             password: '',
@@ -79,7 +81,7 @@ function SignUpScreen({navigation}) {
           onSubmit={values => handleSubmit(values)}
           validationSchema={validationSchema}>
           <View style={styles.container3}>
-            {/* <View style={styles.inputFieldContainer}>
+            <View style={styles.inputFieldContainer}>
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -89,7 +91,7 @@ function SignUpScreen({navigation}) {
                 textContentType="name"
                 size="large"
               />
-            </View> */}
+            </View>
             <View style={styles.inputFieldContainer}>
               <AppFormField
                 autoCapitalize="none"

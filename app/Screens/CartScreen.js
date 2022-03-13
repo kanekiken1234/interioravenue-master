@@ -1,14 +1,41 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
 import Screen from '../components/Screen';
 import IconButton from '../components/AppIconButton';
 import colors from '../config/colors';
-import AppListItem from '../components/AppListItem';
 import { Divider } from '@ui-kitten/components';
+import ProductListItem from '../components/ProductListItem';
 
 
 function CartScreen() {
+
+  const DATA = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      title: 'First Item',
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Second Item',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Third Item',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e2d72',
+      title: 'Third Item',
+    },
+    {
+      id: '58694af-3da1-471f-bd96-145571e29d72',
+      title: 'Third Item',
+    },
+    {
+      id: '58694a0f3da1-471f-bd96-145571e29d72',
+      title: 'Third Item',
+    },
+  ];
 
   return (
     <Screen style={styles.screenColor}>
@@ -23,7 +50,6 @@ function CartScreen() {
           iconFill={colors.medium}
           borderRadius={50}
           isIconRequired={true}
-          onPress={() => navigation.navigate('Registration Option')}
         />
 
         <Text style={styles.headingStyle}>Cart</Text>
@@ -44,44 +70,49 @@ function CartScreen() {
 
       </View>
       <View style={styles.content}>
+        <FlatList
+          data={DATA}
+          renderItem={({ item }) => (
+            <ProductListItem
+              id={item.id}
+              title={item.title} />
+          )}
+          keyExtractor={item => item.id} />
 
       </View>
+
       <View style={styles.bottomBar}>
-        <AppListItem
-          customTitle="Sub Total"
-          title="Sub Total"
-          rightIconName="chevron-right-outline"
-          height={52}
-        />
-        <AppListItem
-          customTitle="Delivery Charges"
-          title="Delivery Charges"
-          rightIconName="chevron-right-outline"
-          height={52}
-        />
-        <AppListItem
-          customTitle="Taxes"
-          title="Taxes"
-          rightIconName="chevron-right-outline"
-          height={52}
-        />
-        <Divider style={{ height: 1.5, width: "88%" }} />
-        <AppListItem
-          customTitle="Total"
-          title="Total"
-          rightIconName="chevron-right-outline"
-        />
-        <IconButton
-          buttonHeight={50}
-          buttonWidth="90%"
-          isIconRequired={false}
-          name="PAY NOW"
-          buttonBackgroundColor={colors.secondary}
-          buttonBorderColor={colors.secondary}
-          status="basic"
-          borderRadius={25}
-          size="large"
-        />
+        <View style={styles.priceRow}>
+          <Text>Sub Total:</Text>
+          <Text>Rs. 450</Text>
+        </View>
+        <View style={styles.priceRow}>
+          <Text>Taxes:</Text>
+          <Text>Rs. 450</Text>
+        </View>
+        <View style={styles.priceRow}>
+          <Text>Delivery Charges:</Text>
+          <Text>Rs. 450</Text>
+        </View>
+        <Divider />
+        <View style={styles.priceRow}>
+          <Text style={styles.total}>Total:</Text>
+          <Text style={styles.total}>Rs. 450</Text>
+        </View>
+        <View style={{
+          flex: 0.3,
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <IconButton
+            name="PAY NOW"
+            buttonWidth="100%"
+            buttonHeight="75%"
+            buttonBackgroundColor={colors.secondary}
+            borderRadius={25}
+            size="large"
+          />
+        </View>
       </View>
     </Screen >
 
@@ -90,25 +121,35 @@ function CartScreen() {
 
 const styles = StyleSheet.create({
   bottomBar: {
-    flex: 0.4,
+    flex: 0.35,
     overflow: 'hidden',
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    elevation: 35,
+    elevation: 30,
     backgroundColor: colors.white,
-    alignItems: 'center',
-    paddingTop: 16,
-    paddingBottom: 32
+    padding: 10,
+    paddingHorizontal: 20
   },
   content: {
-    flex: 0.5
+    flex: 0.55,
+    paddingHorizontal: 10,
   },
   headingStyle: {
     fontWeight: "bold",
-    fontSize: 16
+    fontSize: 16,
+  },
+  priceRow: {
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    alignItems: 'center',
+    flex: 0.2
   },
   screenColor: {
     backgroundColor: colors.primary,
+  },
+  total: {
+    fontWeight: "bold",
+    fontSize: 16
   },
   topBar: {
     flexDirection: "row",
