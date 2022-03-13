@@ -11,34 +11,40 @@ import FeedNavigator from "./FeedNavigator";
 
 const Tab = createBottomTabNavigator();
 
-const AppNavigator = ()=>{
-    return(
+const AppNavigator = () => {
+    return (
         <Tab.Navigator
-        tabBarOptions={{
-            activeTintColor: "black",
-            inactiveTintColor:"grey",
-            labelStyle:{
-                fontWeight: "bold",
-                fontSize: 11
-            }
-        }}
-        screenOptions={{
-            headerShown: false,
-            tabBarActiveTintColor: '#e91e63',
-        }}
+            tabBarOptions={{
+                activeTintColor: "black",
+                inactiveTintColor: "grey",
+                labelStyle: {
+                    fontWeight: "bold",
+                    fontSize: 11
+                },
+                style: { height: 60, paddingTop: 8, paddingBottom: 8 }
+            }}
+            screenOptions={{
+                headerShown: false,
+                tabBarActiveTintColor: '#e91e63',
+            }}
         >
+<<<<<<< HEAD
             <Tab.Screen name="Home" component={FeedNavigator} options={{   
                 tabBarIcon: ({color})=> <Icon fill={color} name="home-outline" style={{height:25,width:25}} />
+=======
+            <Tab.Screen name="Home" component={HomeScreen} options={{
+                tabBarIcon: ({ color }) => <Icon fill={color} name="home-outline" style={{ height: 25, width: 25 }} />
+>>>>>>> cartScreen
             }} />
-            <Tab.Screen name="Category" component={CategoryScreen}  options={{   
-                tabBarIcon: ({color})=> <Icon fill={color} name="grid-outline" style={{height:25,width:25}} />
+            <Tab.Screen name="Category" component={CategoryScreen} options={{
+                tabBarIcon: ({ color }) => <Icon fill={color} name="grid-outline" style={{ height: 25, width: 25 }} />
             }} />
-            <Tab.Screen name="Cart" component={CartScreen} 
-             options={{   
-                tabBarIcon: ({color})=> <Icon fill={color} name="shopping-cart-outline" style={{height:25,width:25}} />
-            }} />
-            <Tab.Screen name="Account" component={AccountScreen}  options={{   
-                tabBarIcon: ({color})=> <Icon fill={color} name="person-outline" style={{height:25,width:25}} />
+            <Tab.Screen name="Cart" component={CartScreen}
+                options={{
+                    tabBarIcon: ({ color }) => <Icon fill={color} name="shopping-cart-outline" style={{ height: 25, width: 25 }} />
+                }} />
+            <Tab.Screen name="Account" component={AccountScreen} options={{
+                tabBarIcon: ({ color }) => <Icon fill={color} name="person-outline" style={{ height: 25, width: 25 }} />
             }} />
         </Tab.Navigator>
     )
