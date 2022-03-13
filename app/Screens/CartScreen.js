@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
     elevation: 35,
     backgroundColor: colors.white,
     alignItems: 'center',
-    paddingTop: 16
+    paddingTop: 16,
+    paddingBottom: 32
   },
   content: {
     flex: 0.5
