@@ -7,6 +7,7 @@ import HomeScreen from "../Screens/HomeScreen";
 import CategoryScreen from "../Screens/CategoryScreen";
 import CartScreen from "../Screens/CartScreen";
 import AccountScreen from "../Screens/AccountScreen";
+import FeedNavigator from "./FeedNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,7 @@ const AppNavigator = ()=>{
             tabBarActiveTintColor: '#e91e63',
         }}
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{   
+            <Tab.Screen name="Home" component={FeedNavigator} options={{   
                 tabBarIcon: ({color})=> <Icon fill={color} name="home-outline" style={{height:25,width:25}} />
             }} />
             <Tab.Screen name="Category" component={CategoryScreen}  options={{   
