@@ -19,7 +19,8 @@ const AppNavigator = ()=>{
             labelStyle:{
                 fontWeight: "bold",
                 fontSize: 11
-            }
+            },
+            style:{height:60,paddingTop:8}
         }}
         screenOptions={{
             headerShown: false,
