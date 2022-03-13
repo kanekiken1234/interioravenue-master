@@ -6,7 +6,7 @@ import { ListItem, Icon } from '@ui-kitten/components';
 import colors from '../config/colors';
 import AppIconButton from '../components/AppIconButton';
 
-function AppListItem({ id, leftIconName, rightIconName, title, customTitle = false }) {
+function AppListItem({ id, leftIconName, rightIconName, title, height = 77, customTitle = false }) {
 
     const renderItemIcon = (leftIconName) => (
         <AppIconButton
@@ -49,9 +49,9 @@ function AppListItem({ id, leftIconName, rightIconName, title, customTitle = fal
     return (
         <ListItem
             key={id}
-            style={styles.listStyle}
+            style={[{ height: height }, styles.listStyle]}
             title={customTitle ? <TitleElement title={title} /> : title}
-            accessoryLeft={renderItemIcon(leftIconName)}
+            accessoryLeft={leftIconName ? renderItemIcon(leftIconName) : ""}
             accessoryRight={renderItemAccessory(rightIconName)}
         />
     )
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
         width: 32
     },
     listStyle: {
-        height: 77,
         paddingLeft: 15,
         paddingRight: 15,
         backgroundColor: colors.white

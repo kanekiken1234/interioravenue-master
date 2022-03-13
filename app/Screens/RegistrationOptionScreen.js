@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import LottieView from 'lottie-react-native';
 
 import colors from '../config/colors';
 import Screen from './../components/Screen';
 import IconButton from '../components/AppIconButton';
 
-function RegistrationOptionScreen({navigation}) {
+function RegistrationOptionScreen({ navigation }) {
   return (
     <Screen>
       <View style={styles.mainContainer}>
