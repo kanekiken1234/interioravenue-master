@@ -78,7 +78,6 @@ function CartScreen() {
               title={item.title} />
           )}
           keyExtractor={item => item.id} />
-
       </View>
 
       <View style={styles.bottomBar}>
