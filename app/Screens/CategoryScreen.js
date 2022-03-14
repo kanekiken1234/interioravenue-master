@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   content: {
-    flex: 1,
+    flex: 0.9,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: 'flex-start'
