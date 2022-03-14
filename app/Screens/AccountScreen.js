@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     fontWeight: "bold",
     fontSize: 18,
-    color: colors.light
+    color: colors.dark
   },
   userDescription: {
     color: colors.medium

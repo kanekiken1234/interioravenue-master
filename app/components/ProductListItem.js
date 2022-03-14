@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
     },
     qty: {
-        color: colors.light,
+        color: colors.dark,
         fontWeight: "300",
         fontSize: 20
     }
