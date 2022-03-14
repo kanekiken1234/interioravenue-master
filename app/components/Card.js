@@ -4,7 +4,7 @@ import { View, StyleSheet, TouchableWithoutFeedback, Image, Text } from "react-n
 import colors from "../config/colors";
 import IconButton from "./AppIconButton";
 
-function Card({ title, price, imageUrl, onPress }) {
+function Card({ title, subTitle, price, imageUrl, onPress }) {
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.card}>

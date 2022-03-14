@@ -1,29 +1,14 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, StatusBar, Text, Image } from "react-native";
 
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 import IconButton from "../components/AppIconButton";
 
-
 function ItemDetailsScreen({ route }) {
 	const listing = route.params;
 	return (
 		<Screen>
-			<View style={styles.imageContainer}>
-				<Image
-					style={styles.image}
-					source={{
-						uri: listing.image
-					}}
-					resizeMode="center"
-				/>
-			</View>
-			<View style={styles.profileContent}>
-				<Text style={styles.title}>{listing.title}</Text>
-				<Text style={styles.subTitle}>{listing.subTitle}</Text>
-				<Text style={styles.price}>{listing.price}</Text>
-			</View>
 			<View style={styles.imageContainer}>
 				<Image
 					style={styles.image}
@@ -111,12 +96,13 @@ const styles = StyleSheet.create({
 		fontSize: 25,
 		color: colors.medium,
 		fontWeight: "bold",
-		paddingLeft: 20
+		paddingLeft: 20,
 	},
 	subTitle: {
-		paddingLeft: 20,
 		fontSize: 16,
-		color: colors.medium,
+		color: colors.black,
+		paddingLeft: 20,
+		fontWeight: "300"
 	},
 	taxes: {
 		fontSize: 12,

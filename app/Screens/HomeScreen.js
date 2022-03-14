@@ -17,18 +17,21 @@ const listing = [
   {
     id: 1,
     title: "Temp card 1",
+    subTitle: "dasdasdadasdasdadasdasdadasdasdadasdasda",
     price: "Rs.560",
     image: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/models/Chairs/202/IKE080012_png/IKEA-Folke_Chair-3D.png"
   },
   {
     id: 2,
     title: "Temp card 2",
+    subTitle: "dasdasdadasdasdadasdasdadasdasdadasdasda",
     price: "Rs.960",
     image: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/models/Desks/502/IKE060012_png/Alve_Desk.png"
   },
   {
     id: 3,
     title: "Temp card 3",
+    subTitle: "dasdasdadasdasdadasdasdadasdasdadasdasda",
     price: "Rs.1060",
     image: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/models/Sofa/303/IKE040019_png/IKEA-Tylosand_3_Seat_Sofa_Bed-3D.png"
   },
@@ -69,6 +72,7 @@ function HomeScreen({ navigation }) {
               <Card
                 key={item.id}
                 title={item.title}
+                subTitle={item.subTitle}
                 imageUrl={item.image}
                 price={item.price}
                 onPress={() => navigation.navigate("ItemDetails", item)}

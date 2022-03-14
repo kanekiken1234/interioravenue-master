@@ -2,7 +2,7 @@ import React from 'react'
 import CategoryComponent from '../components/CategoryComponent'
 
 
-function TablesScreen() {
+function TablesScreen({ navigation }) {
     return (
         <CategoryComponent
             title="Tables"
