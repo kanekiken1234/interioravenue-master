@@ -40,37 +40,11 @@ function CartScreen() {
   return (
     <Screen style={styles.screenColor}>
       <View style={styles.topBar}>
-        <IconButton
-          buttonWidth={32}
-          buttonHeight={32}
-          buttonBackgroundColor={colors.white}
-          iconName="corner-up-left-outline"
-          iconWidth={20}
-          iconHeight={20}
-          iconFill={colors.medium}
-          borderRadius={50}
-          isIconRequired={true}
-        />
-
         <Text style={styles.headingStyle}>Cart</Text>
-
-        <IconButton
-          buttonWidth={32}
-          buttonHeight={32}
-          buttonBackgroundColor={colors.white}
-          iconName="more-horizontal-outline"
-          iconWidth={20}
-          iconHeight={20}
-          iconFill={colors.medium}
-          borderRadius={50}
-          isIconRequired={true}
-          onPress={() => navigation.navigate('Registration Option')}
-        />
-
-
       </View>
       <View style={styles.content}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={DATA}
           renderItem={({ item }) => (
             <ProductListItem
@@ -154,7 +128,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     flex: 0.1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     paddingLeft: 16,
     paddingRight: 16
   }

@@ -8,6 +8,7 @@ import CategoryScreen from "../Screens/CategoryScreen";
 import CartScreen from "../Screens/CartScreen";
 import AccountScreen from "../Screens/AccountScreen";
 import FeedNavigator from "./FeedNavigator";
+import CategoryNavigation from "./CategoriesNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +33,7 @@ const AppNavigator = () => {
             <Tab.Screen name="Home" component={FeedNavigator} options={{
                 tabBarIcon: ({ color }) => <Icon fill={color} name="home-outline" style={{ height: 25, width: 25 }} />
             }} />
-            <Tab.Screen name="Category" component={CategoryScreen} options={{
+            <Tab.Screen name="Category" component={CategoryNavigation} options={{
                 tabBarIcon: ({ color }) => <Icon fill={color} name="grid-outline" style={{ height: 25, width: 25 }} />
             }} />
             <Tab.Screen name="Cart" component={CartScreen}

@@ -1,9 +1,8 @@
 import React from "react";
-import { View, StyleSheet, StatusBar, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image } from "react-native";
 
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import AppIconButton from "../components/AppIconButton";
 
 function ItemDetailsScreen({ route }) {
 	const listing = route.params;

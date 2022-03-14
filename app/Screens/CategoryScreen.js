@@ -1,15 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import IconButton from '../components/AppIconButton';
-import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 
-function CategoryScreen() {
+function CategoryScreen({ navigation }) {
 
   const sofa = require("../Images/sofa.png")
   const chair = require("../Images/chair.png")
@@ -19,66 +17,51 @@ function CategoryScreen() {
 
   const cards = [{
     label: "Sofa",
-    icon: sofa
+    icon: sofa,
+    nav: "SofasScreen"
   },
   {
     label: "Chair",
-    icon: chair
+    icon: chair,
+    nav: "ChairsScreen"
   },
   {
     label: "Desk",
-    icon: desk
+    icon: desk,
+    nav: "DesksScreen"
   },
   {
     label: "Table",
-    icon: table
+    icon: table,
+    nav: "TablesScreen"
   },
   {
     label: "Bed",
-    icon: bed
+    icon: bed,
+    nav: "BedsScreen"
   }]
 
   return (
     <Screen style={styles.screenColor}>
       <View style={styles.topBar}>
-        <IconButton
-          buttonWidth={32}
-          buttonHeight={32}
-          buttonBackgroundColor={colors.white}
-          iconName="corner-up-left-outline"
-          iconWidth={20}
-          iconHeight={20}
-          iconFill={colors.medium}
-          borderRadius={50}
-          isIconRequired={true}
-        />
         <Text style={styles.headingStyle}>Categories</Text>
-        <IconButton
-          buttonWidth={32}
-          buttonHeight={32}
-          buttonBackgroundColor={colors.white}
-          iconName="more-horizontal-outline"
-          iconWidth={20}
-          iconHeight={20}
-          iconFill={colors.medium}
-          borderRadius={50}
-          isIconRequired={true}
-          onPress={() => navigation.navigate('Registration Option')}
-        />
       </View>
 
       <View style={styles.content}>
         {cards.map(each => {
           return (
-            <Pressable key={each.label} style={({ pressed }) => [
-              {
-                backgroundColor: pressed
-                  ? colors.light
-                  : colors.white
-              },
-              styles.catCard,
-              styles.wrapperCustom
-            ]}>
+            <Pressable
+              key={each.label}
+              onPress={() => navigation.navigate(`${each.nav}`)}
+              style={({ pressed }) => [
+                {
+                  backgroundColor: pressed
+                    ? colors.light
+                    : colors.white
+                },
+                styles.catCard,
+                styles.wrapperCustom
+              ]}>
               <Image style={styles.icon} source={each.icon} />
               <Text style={styles.label}>{each.label}</Text>
             </Pressable>
@@ -126,7 +109,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     flex: 0.1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     paddingLeft: 16,
     paddingRight: 16
   }

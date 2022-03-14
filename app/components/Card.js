@@ -1,10 +1,10 @@
 import React from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Image, Text } from "react-native";
 
-
 import colors from "../config/colors";
+import IconButton from "./AppIconButton";
 
-function Card({ title, subTitle, price, imageUrl, onPress, thumbnailUrl }) {
+function Card({ title, price, imageUrl, onPress }) {
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.card}>
@@ -19,12 +19,24 @@ function Card({ title, subTitle, price, imageUrl, onPress, thumbnailUrl }) {
 					<Text style={styles.title}>
 						{title}
 					</Text>
-					<Text style={styles.subTitle}>
-						{subTitle}
-					</Text>
-					<Text style={styles.price}>
-						{price}
-					</Text>
+					<View style={{
+						flexDirection: 'row',
+						justifyContent: 'space-between',
+						alignItems: 'center'
+					}}>
+						<Text style={styles.price}>
+							Rs. {price}
+						</Text>
+						<IconButton
+							iconName="shopping-cart-outline"
+							buttonAppearance="ghost"
+							iconWidth={32}
+							iconHeight={32}
+							iconFill={colors.black}
+							buttonBackgroundColor={colors.white}
+							borderRadius={25}
+							isIconRequired={true} />
+					</View>
 				</View>
 			</View>
 		</TouchableWithoutFeedback>
@@ -36,6 +48,7 @@ const styles = StyleSheet.create({
 		borderRadius: 15,
 		backgroundColor: colors.white,
 		marginBottom: 20,
+		paddingVertical: 20,
 		overflow: "hidden",
 	},
 	detailsContainer: {
