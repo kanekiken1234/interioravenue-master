@@ -1,5 +1,5 @@
-import React, {useState, useContext} from 'react';
-import {View, StyleSheet, Text, KeyboardAvoidingView} from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, StyleSheet, Text, KeyboardAvoidingView } from 'react-native';
 import {
   AppForm,
   AppFormField,
@@ -16,7 +16,7 @@ import authApi from '../api/auth';
 import AuthContext from '../auth/context';
 import authStorage from '../auth/storage';
 
-function SigninScreen({navigation}) {
+function SigninScreen({ navigation }) {
   const authContext = useContext(AuthContext);
   const [loginFailed, setLoginFailed] = useState(false);
 
@@ -26,7 +26,7 @@ function SigninScreen({navigation}) {
   });
 
   const handleSubmit = async values => {
-    const {email, password} = values;
+    const { email, password } = values;
     const result = await authApi.login(email, password);
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
@@ -60,7 +60,7 @@ function SigninScreen({navigation}) {
           </View>
         </View>
         <AppForm
-          initialValues={{email: '', password: ''}}
+          initialValues={{ email: '', password: '' }}
           onSubmit={values => handleSubmit(values)}
           validationSchema={validationSchema}>
           <View style={styles.inputContainer}>
@@ -72,6 +72,7 @@ function SigninScreen({navigation}) {
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
+                backgroundColor={colors.darkLight}
                 keyboardType="email-address"
                 name="email"
                 textContentType="emailAddress"
@@ -84,6 +85,7 @@ function SigninScreen({navigation}) {
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
+                backgroundColor={colors.darkLight}
                 name="password"
                 color={colors.white}
                 placeholder="Enter Password"

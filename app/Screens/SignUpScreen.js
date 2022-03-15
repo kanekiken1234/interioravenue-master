@@ -85,6 +85,7 @@ function SignUpScreen({ navigation }) {
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
+                backgroundColor={colors.darkLight}
                 name="name"
                 color={colors.white}
                 placeholder="Enter Your Name"
@@ -96,6 +97,7 @@ function SignUpScreen({ navigation }) {
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
+                backgroundColor={colors.darkLight}
                 keyboardType="email-address"
                 name="email"
                 color={colors.white}
@@ -108,6 +110,7 @@ function SignUpScreen({ navigation }) {
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
+                backgroundColor={colors.darkLight}
                 keyboardType="numeric"
                 name="phone"
                 placeholder="Enter Phone Number"
@@ -121,6 +124,7 @@ function SignUpScreen({ navigation }) {
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
+                backgroundColor={colors.darkLight}
                 name="password"
                 color={colors.white}
                 placeholder="Enter Password"
@@ -133,6 +137,7 @@ function SignUpScreen({ navigation }) {
               <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
+                backgroundColor={colors.darkLight}
                 name="confirmPassword"
                 color={colors.white}
                 placeholder="Confirm Password"

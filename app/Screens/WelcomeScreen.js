@@ -1,19 +1,19 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground, Text} from 'react-native';
+import { View, StyleSheet, ImageBackground, Text } from 'react-native';
 import colors from '../config/colors';
-import {Icon, Button} from '@ui-kitten/components';
+import { Icon, Button } from '@ui-kitten/components';
 import IconButton from '../components/AppIconButton';
 
 const homeIcon = props => (
   <Icon
     {...props}
     fill="black"
-    style={{height: 45, width: 45}}
+    style={{ height: 45, width: 45 }}
     name="arrow-right-outline"
   />
 );
 
-function WelcomeScreen({navigation}) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       style={styles.container}
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    marginTop: 20,
+    marginTop: 10
   },
   arrowCircle: {
     height: 60,
