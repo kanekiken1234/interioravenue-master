@@ -3,41 +3,34 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 import Screen from '../components/Screen';
 import colors from '../config/colors';
-import IconButton from '../components/AppIconButton';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 
 function CategoryScreen({ navigation }) {
 
-  const sofa = require("../Images/sofa.png")
-  const chair = require("../Images/chair.png")
-  const desk = require("../Images/desk.png")
-  const table = require("../Images/table.png")
-  const bed = require("../Images/bed.png")
-
   const cards = [{
     label: "Sofa",
-    icon: sofa,
+    iconURI: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/Utils/images/sofa.png",
     nav: "SofasScreen"
   },
   {
     label: "Chair",
-    icon: chair,
+    iconURI: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/Utils/images/chair.png",
     nav: "ChairsScreen"
   },
   {
     label: "Desk",
-    icon: desk,
+    iconURI: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/Utils/images/desk.png",
     nav: "DesksScreen"
   },
   {
     label: "Table",
-    icon: table,
+    iconURI: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/Utils/images/table.png",
     nav: "TablesScreen"
   },
   {
     label: "Bed",
-    icon: bed,
+    iconURI: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/Utils/images/bed.png",
     nav: "BedsScreen"
   }]
 
@@ -62,7 +55,7 @@ function CategoryScreen({ navigation }) {
                 styles.catCard,
                 styles.wrapperCustom
               ]}>
-              <Image style={styles.icon} source={each.icon} />
+              <Image style={styles.icon} source={{ uri: each.iconURI }} />
               <Text style={styles.label}>{each.label}</Text>
             </Pressable>
           )

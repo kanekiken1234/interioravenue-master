@@ -50,7 +50,7 @@ function AccountScreen() {
           <View style={styles.layer}>
             <Avatar
               style={styles.avatar}
-              source={require("../Images/defaultProfilePicture.png")} />
+              source={{ uri: "https://ia-3d-models.s3.ap-south-1.amazonaws.com/Utils/images/defaultProfilePicture.png" }} />
           </View>
         </View>
         <View>
