@@ -1,7 +1,7 @@
 import React from 'react'
 import CategoryComponent from '../components/CategoryComponent'
 
-function DesksScreen({ navigation }) {
+function BedsScreen({ navigation }) {
     return (
         <CategoryComponent
             title="Beds"
@@ -10,4 +10,4 @@ function DesksScreen({ navigation }) {
     )
 }
 
-export default DesksScreen
+export default BedsScreen
