@@ -3,12 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from '@ui-kitten/components';
 
 import colors from "../config/colors";
-import HomeScreen from "../Screens/HomeScreen";
-import CategoryScreen from "../Screens/CategoryScreen";
 import CartScreen from "../Screens/CartScreen";
-import AccountScreen from "../Screens/AccountScreen";
 import FeedNavigator from "./FeedNavigator";
 import CategoryNavigation from "./CategoriesNavigation";
+import AccountsNavigator from "./AccountsNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -40,7 +38,7 @@ const AppNavigator = () => {
                 options={{
                     tabBarIcon: ({ color }) => <Icon fill={color} name="shopping-cart-outline" style={{ height: 25, width: 25 }} />
                 }} />
-            <Tab.Screen name="Account" component={AccountScreen} options={{
+            <Tab.Screen name="Account" component={AccountsNavigator} options={{
                 tabBarIcon: ({ color }) => <Icon fill={color} name="person-outline" style={{ height: 25, width: 25 }} />
             }} />
         </Tab.Navigator>

@@ -6,7 +6,7 @@ import Screen from '../components/Screen';
 
 import colors from '../config/colors'
 
-function AccountScreen() {
+function AccountScreen({ navigation }) {
 
   let i = 0;
 
@@ -15,25 +15,29 @@ function AccountScreen() {
       id: 1,
       title: "My Orders",
       iconName: "shopping-bag-outline",
-      customTitle: true
+      customTitle: true,
+      screen: "OrderScreen"
     },
     {
       id: 2,
       title: "Help & Support",
       iconName: "question-mark-circle-outline",
-      customTitle: true
+      customTitle: true,
+      screen: "HelpAndSupportScreen"
     },
     {
       id: 3,
       title: "Settings",
       iconName: "settings-2-outline",
-      customTitle: true
+      customTitle: true,
+      screen: "SettingsScreen"
     },
     {
       id: 4,
       title: "More Information",
       iconName: "info-outline",
-      customTitle: true
+      customTitle: true,
+      screen: "MoreInfoScreen"
     },
     {
       id: 5,
@@ -65,9 +69,9 @@ function AccountScreen() {
 
       <View style={styles.profileContent}>
         {
-          profileListItems.map(({ id, customTitle, iconName, title }) => {
+          profileListItems.map(({ id, customTitle, iconName, title, screen }) => {
             i++;
-            if (i === 4) {
+            if (i == 4) {
               return (
                 <View key={id}>
                   <Divider />
@@ -76,6 +80,8 @@ function AccountScreen() {
                     title={title}
                     leftIconName={iconName}
                     rightIconName="chevron-right-outline"
+                    onPress={
+                      () => navigation.navigate(screen)}
                   />
                 </View>
               )
@@ -83,6 +89,10 @@ function AccountScreen() {
             else {
               return (
                 <AppListItem
+                  onPress={() => {
+                    id === 5 ? console.log("LogOut CLicked") :
+                      navigation.navigate(screen)
+                  }}
                   key={id}
                   customTitle={customTitle}
                   title={title}

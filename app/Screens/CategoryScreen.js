@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 
 import Screen from '../components/Screen';
 import colors from '../config/colors';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
+
 
 
 function CategoryScreen({ navigation }) {

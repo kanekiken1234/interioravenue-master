@@ -1,13 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native'
-import { ListItem, Icon } from '@ui-kitten/components';
+import { StyleSheet, Text } from 'react-native'
+import { ListItem } from '@ui-kitten/components';
+
+
 
 
 import colors from '../config/colors';
 import AppIconButton from '../components/AppIconButton';
 
-function AppListItem({ id, leftIconName, rightIconName, title, height = 77, customTitle = false }) {
 
+function AppListItem({ id, leftIconName, rightIconName, title, onPress, height = 77, customTitle = false }) {
     const renderItemIcon = (leftIconName) => (
         <AppIconButton
             buttonWidth={30}
@@ -20,6 +22,7 @@ function AppListItem({ id, leftIconName, rightIconName, title, height = 77, cust
             buttonBackgroundColor={colors.white}
             buttonBorderColor={colors.white}
             isIconRequired={true}
+            onPress={onPress}
         />
     );
 
@@ -35,6 +38,7 @@ function AppListItem({ id, leftIconName, rightIconName, title, height = 77, cust
             buttonBackgroundColor={colors.white}
             buttonBorderColor={colors.white}
             isIconRequired={true}
+            onPress={onPress}
         />
     );
 
@@ -48,6 +52,8 @@ function AppListItem({ id, leftIconName, rightIconName, title, height = 77, cust
 
     return (
         <ListItem
+            button
+            onPress={onPress}
             key={id}
             style={[{ height: height }, styles.listStyle]}
             title={customTitle ? <TitleElement title={title} /> : title}
