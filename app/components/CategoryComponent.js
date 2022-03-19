@@ -13,13 +13,12 @@ import Card from '../components/Card'
 function CategoryComponent({ navigation, title, path }) {
 
     const [data, setData] = useState([]);
-
     useEffect(() => {
         async function fetchData() {
             try {
                 const result = await fetchDetailsApi.fetchDetails(path);
                 if (!result.ok) {
-                    setChairsData("No Data Found")
+                    setData("No Data Found")
                     return
                 }
                 const ids = Object.keys(result.data)
@@ -77,6 +76,7 @@ function CategoryComponent({ navigation, title, path }) {
                             title={item.data.product_name}
                             imageUrl={item.data.product_3D_model_image}
                             price={item.data.product_price}
+                            onPress={() => navigation.navigate("ItemDetailsScreen", [item.id,path])}
                         />
                     )}
                     keyExtractor={item => item.id}
