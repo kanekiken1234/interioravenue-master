@@ -7,7 +7,7 @@ import IconButton from '../components/AppIconButton'
 import Screen from '../components/Screen'
 import colors from '../config/colors'
 
-function OrdersScreen({ navigation }) {
+function HelpAndSupportScreen({ navigation }) {
     return (
         <Screen style={styles.screenColor}>
             <View style={styles.topBar}>
@@ -61,7 +61,7 @@ function OrdersScreen({ navigation }) {
                         borderRadius={25}
                         iconHeight={60}
                         iconWidth={60}
-                        iconFill={colors.black}
+                        iconFill={colors.medium}
                     />
                     <IconButton
                         buttonWidth="45%"
@@ -72,7 +72,7 @@ function OrdersScreen({ navigation }) {
                         borderRadius={25}
                         iconHeight={60}
                         iconWidth={60}
-                        iconFill={colors.black}
+                        iconFill={colors.medium}
                     />
                 </View>
             </View>
@@ -124,4 +124,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default OrdersScreen
+export default HelpAndSupportScreen

@@ -20,17 +20,17 @@ function AccountScreen({ navigation }) {
     },
     {
       id: 2,
-      title: "Help & Support",
-      iconName: "question-mark-circle-outline",
-      customTitle: true,
-      screen: "HelpAndSupportScreen"
-    },
-    {
-      id: 3,
       title: "Settings",
       iconName: "settings-2-outline",
       customTitle: true,
       screen: "SettingsScreen"
+    },
+    {
+      id: 3,
+      title: "Help & Support",
+      iconName: "question-mark-circle-outline",
+      customTitle: true,
+      screen: "HelpAndSupportScreen"
     },
     {
       id: 4,
