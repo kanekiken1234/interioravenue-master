@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, StatusBar, Text, Image, ToastAndroid } from "react-native";
 
+
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 import fetchDetailsApi from '../api/fetchDetails';
 import IconButton from "../components/AppIconButton";
+import Loader from "../components/Loader";
+
 
 function ItemDetailsScreen({ route }) {
 
@@ -55,18 +58,6 @@ function ItemDetailsScreen({ route }) {
 		"product_3D_model_texture": product_3D_model_texture
 	}
 
-	// console.log({
-	// 	product_3D_model_images,
-	// 	product_name,
-	// 	product_price,
-	// 	product_type,
-	// 	product_description,
-	// 	product_3D_model_mtl,
-	// 	product_3D_model_obj,
-	// 	product_3D_model_texture,
-	// 	modelProps
-	// })
-
 	if (Object.keys(data).length !== 0) {
 		console.log(data)
 		return (
@@ -94,7 +85,7 @@ function ItemDetailsScreen({ route }) {
 						paddingRight: 20,
 						flex: 0.3
 					}}>
-						<Text style={styles.price}>Rs. 	{data.product_price}<Text style={styles.taxes}>&nbsp;&nbsp;(*Inclusive of all taxes)</Text></Text>
+						<Text style={styles.price}>Rs.&nbsp;{product_price}<Text style={styles.taxes}>&nbsp;&nbsp;(*Inclusive of all taxes)</Text></Text>
 						<IconButton
 							iconName="shopping-cart-outline"
 							buttonAppearance="ghost"
@@ -140,7 +131,7 @@ function ItemDetailsScreen({ route }) {
 	}
 	else {
 		return (
-			<Text>JNL</Text>
+			<Loader />
 		)
 	}
 }

@@ -12,9 +12,7 @@ import WelcomeScreenStackNav from './app/navigation/WelcomeScreenStackNav';
 import AppNavigator from './app/navigation/AppNavigator';
 import navigationTheme from './app/navigation/navigationTheme';
 import AuthContext from './app/auth/context';
-import HomeScreen from './app/Screens/HomeScreen';
 import authStorage from './app/auth/storage';
-import ItemDetailsScreen from './app/Screens/ItemDetailsScreen';
 
 export default () => {
   const [theme, setTheme] = useState('light');

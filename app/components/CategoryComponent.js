@@ -7,6 +7,7 @@ import Screen from '../components/Screen'
 import colors from '../config/colors'
 import fetchDetailsApi from '../api/fetchDetails'
 import Card from '../components/Card'
+import Loader from '../components/Loader'
 
 
 
@@ -38,52 +39,59 @@ function CategoryComponent({ navigation, title, path }) {
         };
         fetchData();
     }, []);
-    return (
-        <Screen style={styles.screenColor}>
-            <View style={styles.topBar}>
-                <IconButton
-                    buttonWidth={32}
-                    buttonHeight={32}
-                    buttonBackgroundColor={colors.white}
-                    iconName="corner-up-left-outline"
-                    iconWidth={20}
-                    iconHeight={20}
-                    iconFill={colors.medium}
-                    borderRadius={50}
-                    isIconRequired={true}
-                    onPress={() => navigation.goBack()}
-                />
-                <Text style={styles.headingStyle}>{title}</Text>
-                <IconButton
-                    buttonWidth={32}
-                    buttonHeight={32}
-                    buttonBackgroundColor={colors.white}
-                    iconName="more-horizontal-outline"
-                    iconWidth={20}
-                    iconHeight={20}
-                    iconFill={colors.medium}
-                    borderRadius={50}
-                    isIconRequired={true}
-                    onPress={() => { }}
-                />
-            </View>
-            <View style={styles.content}>
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    data={data}
-                    renderItem={({ item }) => (
-                        <Card
-                            title={item.data.product_name}
-                            imageUrl={item.data.product_3D_model_image}
-                            price={item.data.product_price}
-                            onPress={() => navigation.navigate("ItemDetailsScreen", [item.id,path])}
-                        />
-                    )}
-                    keyExtractor={item => item.id}
-                />
-            </View>
-        </Screen>
-    )
+    if (data.length === 0) {
+        return (
+            <Loader />
+        )
+    }
+    else {
+        return (
+            <Screen style={styles.screenColor}>
+                <View style={styles.topBar}>
+                    <IconButton
+                        buttonWidth={32}
+                        buttonHeight={32}
+                        buttonBackgroundColor={colors.white}
+                        iconName="corner-up-left-outline"
+                        iconWidth={20}
+                        iconHeight={20}
+                        iconFill={colors.medium}
+                        borderRadius={50}
+                        isIconRequired={true}
+                        onPress={() => navigation.goBack()}
+                    />
+                    <Text style={styles.headingStyle}>{title}</Text>
+                    <IconButton
+                        buttonWidth={32}
+                        buttonHeight={32}
+                        buttonBackgroundColor={colors.white}
+                        iconName="more-horizontal-outline"
+                        iconWidth={20}
+                        iconHeight={20}
+                        iconFill={colors.medium}
+                        borderRadius={50}
+                        isIconRequired={true}
+                        onPress={() => { }}
+                    />
+                </View>
+                <View style={styles.content}>
+                    <FlatList
+                        showsVerticalScrollIndicator={false}
+                        data={data}
+                        renderItem={({ item }) => (
+                            <Card
+                                title={item.data.product_name}
+                                imageUrl={item.data.product_3D_model_image}
+                                price={item.data.product_price}
+                                onPress={() => navigation.navigate("ItemDetailsScreen", [item.id, path])}
+                            />
+                        )}
+                        keyExtractor={item => item.id}
+                    />
+                </View>
+            </Screen>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
