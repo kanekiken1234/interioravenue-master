@@ -83,9 +83,10 @@ function ItemDetailsScreen({ route }) {
 						alignItems: "center",
 						justifyContent: "space-between",
 						paddingRight: 20,
-						flex: 0.3
+						flex: 0.3,
+						// backgroundColor:"red"
 					}}>
-						<Text style={styles.price}>Rs.&nbsp;{product_price}<Text style={styles.taxes}>&nbsp;&nbsp;(*Inclusive of all taxes)</Text></Text>
+						<Text style={styles.price}>Rs.&nbsp;{product_price}</Text>
 						<IconButton
 							iconName="shopping-cart-outline"
 							buttonAppearance="ghost"
@@ -100,13 +101,14 @@ function ItemDetailsScreen({ route }) {
 
 					<View style={{
 						display: "flex",
-						flex: 0.3,
+						flex: 0.2,
 						flexDirection: "row",
 						alignItems: 'center',
 						justifyContent: 'space-around',
 						bottom: 0,
 						width: "100%",
 						paddingHorizontal: 6,
+						paddingBottom:12
 					}}>
 						<IconButton
 							name="VIEW IN AR"
@@ -169,16 +171,16 @@ const styles = StyleSheet.create({
 		fontStyle: "italic",
 	},
 	profileContent: {
-		overflow: 'hidden',
-		flex: 1,
+		// overflow: 'hidden',
+		flex: 0.3,
 		borderTopLeftRadius: 40,
 		borderTopRightRadius: 40,
 		elevation: 35,
 		backgroundColor: colors.white,
-		position: "absolute",
-		bottom: 0,
+		// position: "absolute",
+		// bottom: 0,
 		width: "100%",
-		height: 250,
+		// height: 250,
 		display: "flex",
 		paddingTop: 16,
 		justifyContent: "space-between",

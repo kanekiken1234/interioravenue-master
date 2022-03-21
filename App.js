@@ -13,6 +13,9 @@ import AppNavigator from './app/navigation/AppNavigator';
 import navigationTheme from './app/navigation/navigationTheme';
 import AuthContext from './app/auth/context';
 import authStorage from './app/auth/storage';
+import { LogBox } from "react-native";
+
+LogBox.ignoreLogs(["EventEmitter.removeListener"]);
 
 export default () => {
   const [theme, setTheme] = useState('light');

@@ -1,14 +1,23 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import AppListItem from '../components/AppListItem';
 import { Avatar, Divider, Icon } from '@ui-kitten/components';
-import Screen from '../components/Screen';
 
+import AuthContext from "../auth/context"
+import authStorage from "../auth/storage"
+import Screen from '../components/Screen';
 import colors from '../config/colors'
 
 function AccountScreen({ navigation }) {
-
+  const authContext = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
+  console.log(user)
   let i = 0;
+
+  const logout= ()=>{
+    authContext.setUser(null);
+    authStorage.remove();
+  }
 
   const profileListItems = [
     {
@@ -59,10 +68,10 @@ function AccountScreen({ navigation }) {
         </View>
         <View>
           <Text style={styles.user}>
-            Ankit Pandey
+            Me
           </Text>
           <Text style={styles.userDescription}>
-            sasasa@ankit.com
+            {user.email}
           </Text>
         </View>
       </View>
@@ -90,9 +99,7 @@ function AccountScreen({ navigation }) {
               return (
                 <AppListItem
                   onPress={() => {
-                    id === 5 ? console.log("LogOut CLicked") :
-                      navigation.navigate(screen)
-                  }}
+                    id === 5 ?logout(): navigation.navigate(screen)}}
                   key={id}
                   customTitle={customTitle}
                   title={title}
@@ -149,7 +156,8 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     fontWeight: "bold",
     fontSize: 18,
-    color: colors.dark
+    color: colors.dark,
+    textAlign:'center'
   },
   userDescription: {
     color: colors.medium
