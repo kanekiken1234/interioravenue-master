@@ -8,6 +8,8 @@ import TablesScreen from '../Screens/TablesScreen';
 import DesksScreen from '../Screens/DesksScreen';
 import CategoryScreen from '../Screens/CategoryScreen';
 import ItemDetailsScreen from '../Screens/ItemDetailsScreen';
+import ModelScreen from "../Screens/ModelScreen";
+import TempScreen from "../Screens/TempScreen";
 
 
 const Stack = createStackNavigator();
@@ -54,6 +56,18 @@ const CategoryNavigation = () => (
             component={ItemDetailsScreen}
             options={{ headerShown: false }}
         />
+        <Stack.Screen
+			name="ModelScreen"
+			component={ModelScreen}
+            options={{ headerShown: false }}
+
+		/>
+        <Stack.Screen
+			name="TempScreen"
+			component={TempScreen}
+            options={{ headerShown: false }}
+
+		/>
     </Stack.Navigator>
 );
 

@@ -9,18 +9,19 @@ import IconButton from "../components/AppIconButton";
 import Loader from "../components/Loader";
 
 
-function ItemDetailsScreen({ route }) {
-
+function ItemDetailsScreen({ route,navigation }) {
+	// const navigation = route.params[2];
+	console.log(route);
 	const [data, setData] = useState({});
 
 	useEffect(() => {
 		const listing = route.params;
-		console.log(listing[1]);
+		// console.log(listing[1]);
 		let path = listing[1]
 		let product_id = listing[0]
 		let apiPath = path.slice(0, -1)
 		let absoluteApiPath = `${path}${apiPath}?id=${product_id}`
-		console.log(absoluteApiPath)
+		// console.log(absoluteApiPath)
 		async function fetchData() {
 			try {
 				const result = await fetchDetailsApi.fetchDetails(absoluteApiPath);
@@ -28,8 +29,8 @@ function ItemDetailsScreen({ route }) {
 					setData("No Data Found")
 					return
 				}
-				console.log("before")
-				console.log(result.data)
+				// console.log("before")
+				// console.log(result.data)
 				setData(result.data)
 			} catch (error) {
 				console.log(error)
@@ -39,8 +40,8 @@ function ItemDetailsScreen({ route }) {
 		fetchData();
 	}, [])
 
-	console.log("after")
-	console.log(data)
+	// console.log("after")
+	// console.log(data)
 	const {
 		product_3D_model_images,
 		product_name,
@@ -57,9 +58,10 @@ function ItemDetailsScreen({ route }) {
 		"product_3D_model_obj": product_3D_model_obj,
 		"product_3D_model_texture": product_3D_model_texture
 	}
+	console.log("MODEL PROPS",modelProps);
 
 	if (Object.keys(data).length !== 0) {
-		console.log(data)
+		// console.log(data)
 		return (
 			<Screen>
 				<View style={styles.imageContainer}>
@@ -117,6 +119,7 @@ function ItemDetailsScreen({ route }) {
 							buttonBackgroundColor={colors.secondary}
 							borderRadius={25}
 							size="large"
+							onPress={()=> navigation.navigate("ModelScreen",modelProps)}
 						/>
 						<IconButton
 							name="BUY NOW"

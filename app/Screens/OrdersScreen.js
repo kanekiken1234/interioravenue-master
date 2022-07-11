@@ -72,7 +72,7 @@ function OrdersScreen({ navigation }) {
                     showsVerticalScrollIndicator={false}
                     data={DATA}
                     renderItem={({ item }) => (
-                        <OrdersComponent id={item.id} title={item.title} />
+                        <OrdersComponent id={item.id} title={item.title} navigation={navigation} />
                     )}
                     keyExtractor={item => item.id} />
             </View>
